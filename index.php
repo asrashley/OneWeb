@@ -25,13 +25,14 @@ include_once JPATH_THEMES . '/' . $this->template . '/logic.php';
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 </head>
-    <body class="<?php echo $siteHome ; ?>-page <?php echo $option . " view-" . $view . " itemid-" . $itemid . "";?>">
-
+    <body class="<?php echo $siteHome ; ?>-page <?php echo $option . " view-" . $view . " itemid-" . $itemid .  " " . $pageclass ."";?>">
+      <div class="container">
         <div class="header-row">
             <div class="wrapper">
                 <header role="banner" class="content">
                     <div class="logo">
                         <a href="<?php echo $this->baseurl ?>/" title="<?php echo htmlspecialchars($app->getCfg('sitename'));?>"><?php echo htmlspecialchars($app->getCfg('sitename'));?></a>
+                        <img src="/images/stories/w-nk-badge.png" alt="" title="W&NKER" class="badge" />
                     </div>
                     <?php if($this->countModules('menu')) : ?>
                         <nav role="navigation">
@@ -73,14 +74,14 @@ include_once JPATH_THEMES . '/' . $this->template . '/logic.php';
         <?php endif; ?>
 
         <?php if($siteHome != 'home' or ($frontpage == 0)) : ?>
-        <div class="main-row">
+        <div class="main-row clearfix">
             <div class="wrapper">
-                <main role="main" class="content">
+                <main role="main" class="content clearfix <?php if($this->countModules('complementary')) : ?>with-complementary<?php endif; ?>">
                     <jdoc:include type="message" />
                     <jdoc:include type="component" />
                 </main>
                 <?php if($this->countModules('complementary')) : ?>
-                <div role="complementary" class="content">
+                <div role="complementary" class="content clearfix">
                     <jdoc:include type="modules" name="complementary" style="gangnam" />
                 </div>
                 <?php endif; ?>
@@ -121,19 +122,22 @@ include_once JPATH_THEMES . '/' . $this->template . '/logic.php';
                     <?php if ($social > 0) : ?>
                         <ul class="social">
                             <?php if ($twitterLink != "") : ?>
-                                <li><a class="twitter" href="<?php echo ($twitterLink); ?>" title="Follow me on Twitter" target="_blank"><?php echo ($twitter); ?></a></li>
+                                <li><a class="twitter" href="<?php echo ($twitterLink); ?>" title="Follow us on Twitter" target="_blank"><?php echo ($twitter); ?></a></li>
                             <?php endif; ?>
                             <?php if ($dribbbleLink != "") : ?>
                                 <li><a class="dribbble" href="<?php echo ($dribbbleLink); ?>" title="See my latest work at Dribbble" target="_blank"><?php echo ($dribbble); ?></a></li>
                             <?php endif; ?>
                             <?php if ($facebookLink != "") : ?>
-                                <li><a class="facebook" href="<?php echo ($facebookLink); ?>" title="Annoy me on Facebook" target="_blank"><?php echo ($facebook); ?></a></li>
+                                <li><a class="facebook" href="<?php echo ($facebookLink); ?>" title="We're on Facebook" target="_blank"><?php echo ($facebook); ?></a></li>
                             <?php endif; ?>
                             <?php if ($googleplusLink != "") : ?>
-                                <li><a class="googleplus" href="<?php echo ($googleplusLink); ?>" title="Find me on G+" target="_blank"><?php echo ($googleplus); ?></a></li>
+                                <li><a class="googleplus" href="<?php echo ($googleplusLink); ?>" title="Find us on G+" target="_blank"><?php echo ($googleplus); ?></a></li>
                             <?php endif; ?>
                             <?php if ($githubLink != "") : ?>
                                 <li><a class="github" href="<?php echo ($githubLink); ?>" title="All the codez" target="_blank"><?php echo ($github); ?></a></li>
+                            <?php endif; ?>
+                            <?php if ($emailLink != "") : ?>
+                                <li><a class="email" href="mailto:<?php echo ($emailLink); ?>" title="Contact us" target="_blank"><?php echo ($email); ?></a></li>
                             <?php endif; ?>
                         </ul>
                     <?php endif; ?>
@@ -160,6 +164,6 @@ include_once JPATH_THEMES . '/' . $this->template . '/logic.php';
                 s.parentNode.insertBefore(g,s)}(document,"script"));
             </script>
         <?php endif; ?>
-
+      </div>
     </body>
 </html>

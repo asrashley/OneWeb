@@ -83,6 +83,9 @@
 
 				<field name="github" type="text" default="" label="TPL_ONEWEB_GITHUB_LABEL" description="TPL_ONEWEB_GITHUB_DESC" />
 				<field name="githubLink" type="text" default="" label="TPL_ONEWEB_GITHUB_LINK_LABEL" description="TPL_ONEWEB_GITHUB_LINK_DESC" filter="raw" />
+				
+                <field name="email" type="text" default="" label="TPL_ONEWEB_EMAIL_LABEL" description="TPL_ONEWEB_EMAIL_DESC" />
+                <field name="emailLink" type="text" default="" label="TPL_ONEWEB_EMAIL_LINK_LABEL" description="TPL_ONEWEB_EMAIL_LINK_DESC" filter="raw" />
 			</fieldset>
 			<fieldset name="TOOLS" label="TPL_ONEWEB_TOOLS_LABEL">
 				<field name="debug" type="radio" class="btn-group" default="0" label="TPL_ONEWEB_DEBUG_LABEL" description="TPL_ONEWEB_DEBUG_DESC">

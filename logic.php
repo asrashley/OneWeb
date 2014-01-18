@@ -41,6 +41,15 @@ $itemid                = $app->input->getCmd('Itemid', '');
 
 // Are we are on the homepage?
 $menu                  = $app->getMenu();
+$pageclass   = "";
+$active = $menu->getItem($itemid);
+$params = $menu->getParams( $active->id );
+$pageclass = $params->get( 'pageclass_sfx' );
+#if (is_object( $menu )) :
+#   $menuParams = new JParameter( $menu->params );
+#   $pageclass = "." . $menuParams->get( 'pageclass_sfx' );
+#endif;
+
 if ($menu->getActive() == $menu->getDefault()) {$siteHome = 'home';} else {$siteHome = 'sub';};
 
 // Do we have social links?
@@ -106,3 +115,4 @@ $doc->setMetaData( 'viewport', 'width=device-width, initial-scale=1.0' );
 //$doc->setMetaData( 'X-UA-Compatible', 'IE=edge;chrome=1' );
 // For Win mobile
 //$doc->setMetaData( 'cleartype', 'on');
+$doc->addHeadLink($this->baseurl.'/icon.png','icon','rel', array('type' => 'image/png'));
