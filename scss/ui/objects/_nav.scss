@@ -24,11 +24,15 @@
 		}
 
 	}
-
+	
+/*AA:
 	@include media-query(lap) {
 		@extend .lap-three-fifths;
 		text-align: right;
 		vertical-align: middle;
 	}
-
+*/
+  .menu {
+    font-size: 2em;
+  }
 }

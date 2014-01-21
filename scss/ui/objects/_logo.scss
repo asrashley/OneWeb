@@ -8,9 +8,14 @@
 	@extend .grid-item;
 	@extend .kilo;
 
-	@include media-query(lap) {
+  width: 100%;
+  font-family: $comic-family;
+  font-size: 1.5em;
+
+  @include media-query(lap) {
 		@extend .lap-two-fifths;
 		margin-bottom: 0;
 		vertical-align: middle;
+    font-size: 2.7em;
 	}
 }

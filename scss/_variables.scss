@@ -4,7 +4,7 @@
    ========================================================================== */
 
 // Enable any of the following by switching the variable to true.
-$use-breadcrumbs:       true;
+$use-breadcrumbs:       false;
 $use-buttons:           true;
 $use-fluid-type:        true;
 $use-grid:              true;
@@ -16,7 +16,7 @@ $use-pagination:        true;
 $use-rows:              true;
 $use-tables:            true;
 $use-wells:             true;
-$use-wrapper:           true;
+$use-wrapper:           false;
 
 
 /* ==========================================================================
@@ -34,15 +34,23 @@ $use-wrapper:           true;
 //
 // $heading-font-weight: 600;
 //
-$sans-font-family: 		'Lato', sans-serif;
+$menu-background: rgb(177,103,201); 
+/* Capriola, Chewy, Courgette, Bangers,    best = "Averia Sans Libre" or  "Margarine" */
+$sans-font-family: 		'Margarine', "Comic Sans MS", sans-serif;
+$comic-family: $sans-font-family;
 $brand-color: 			#cd6e57;
+
+$brand-background:  $menu-background;
 $root-font-weight:      300;
 $heading-font-weight:   300;
 
 /* Sets the html background dark for a faux footer. */
-$root-background:      rgb(41,41,41);
+$root-background:      white; /* rgb(41,41,41); */
 $body-background:      rgb(255,255,255);
 
+$link-color: #cd6e57;
+
+$palm:                  25em!default;
 
 /* ==========================================================================
    	CUSTOM VARIABLES
@@ -55,3 +63,6 @@ $body-background:      rgb(255,255,255);
 //
 // $sandwich-filling:    bacon!default;
 //
+//$wrapper-max-width: 65em;
+$body-max-width: 85em;
+$wrapper-side-padding: 1em;

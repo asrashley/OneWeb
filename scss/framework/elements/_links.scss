@@ -4,7 +4,6 @@
    ========================================================================== */
 
 a {
-	@include transition;
     color: $link-color;
     text-decoration: none;
 
@@ -12,6 +11,9 @@ a {
     &:focus {
 	    color: $link-hover-color;
 	}
+}
+.animate a {
+  @include transition;
 }
 
 /* Back to top link. */
