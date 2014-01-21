@@ -54,6 +54,8 @@
  *
    ========================================================================== */
 
+@import 'bourbon/bourbon';
+
 /*
  * _variables.scss overrides framework defaults, and enables optional modules,
  * so it needs to be loaded first.
@@ -98,3 +100,186 @@
 @import "ui/objects/above-row-modules";
 @import "ui/objects/below-row-modules";
 
+[role="navigation"], .credit-row .wrapper { 
+  background-color: $menu-background;
+  @include  linear-gradient(#C886D9 0, #B167C9 100%);
+  a {
+    color: white;
+  }
+}
+
+[role="navigation"] .nav > li {
+  display: block;
+  @include media-query(palm) {
+    display: inline-block;
+  }  
+}
+
+body {
+  max-width: $body-max-width;
+}
+
+.credit-row {
+  background-color: $body-background;
+}
+
+/*
+.content {
+  background-image: url("../images/bg.gif");
+  background-repeat: repeat-x;
+} */
+
+.main-row .wrapper {
+  padding: 0 $wrapper-side-padding;
+}
+[role="main"].with-complementary {
+  width: 100%;
+  @include media-query(lap) {
+    float: right;
+    width: 72%; 
+  }
+}
+
+[role="complementary"] {
+  display: none;  
+  @include media-query(lap) {
+    display: block;
+  }
+}
+
+[role="complementary"] .moduleleft {
+  $font-size: 1.3em;
+  width: 25%;
+  height: 27em;
+  font-size: $font-size;
+  margin-left: #{-($wrapper-side-padding / $font-size)}em;
+  background-color: black;
+  /*background-image: url('/images/stories/tunnel-bg.png');
+  background-repeat: repeat-y;
+  background-position: right top;
+  background-size: 100%;*/
+  padding-top: 3em;
+  color: white;
+  .comic {
+    font-family: $comic-family;
+    margin: 0 0.5em;
+    text-align: center;
+  }
+}
+
+.main-row .content {
+  padding-top: 0 !important;
+}
+
+.main-row .wrapper {
+  border-right: 1px solid $menu-background;  
+  border-left: 1px solid $menu-background;  
+}
+
+.main-row [role="complementary"].content {
+  padding-top: 0;
+  padding-bottom: 0;
+} 
+
+header.content {
+  padding-bottom: 0 !important;
+  .logo {
+    padding-bottom: 0.5em;
+  }
+  .badge {
+    width: 1em;
+    height: 1em;
+    position: absolute;
+    top: 1.7em;
+    right: 1em;
+    display: none;
+    @include media-query(lap) {
+      display: block;
+    }
+    @include media-query(portable) {
+      top: 1em;
+      height: 1.7em;
+      width: 1.7em;
+    }
+    @include media-query(desk){
+      left: 28em;
+      right: auto;
+    }
+  }
+}
+
+.animate .badge {
+  @include transition;
+}
+
+
+h1, h2, h3, h4, h5 {
+  color: $link-color;  
+  text-align: left;
+}
+
+.mismanagement, .categories-list {
+  h1, h2, h3 {
+    text-align: center;
+  }
+  
+}
+.home-page {
+  .mugshots {
+    display: none;
+    @include media-query(lap) {
+      display: block;
+    }
+  }
+  .mugshots img {  
+    height: 7em;
+    max-width: 18%;
+    @include media-query(lap) {
+      height: 8em;
+    }
+    @include media-query(portable) {
+      height: 12em;
+    }
+    @include media-query(desk) {
+      height: 15em;
+    }
+    @include media-query(deskwide) {
+      height: 17em;
+    }
+  }
+}
+
+.weblink-category .weblink-category {
+  font-size: 1.5em;
+}
+
+.logo > a {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.no-background {
+  background-image: none;
+  background-color: $root-background;
+}
+
+.article p + p {
+  text-indent: 0;
+}
+
+.article-body ul {
+  padding-left: 2em;
+}
+
+.email:before {
+  content: "\e00d";
+}
+
+.com_contact .contact > h3 {
+  display: none;
+}
+
+.contact-name:before {
+  content:"Contact ";
+}
