@@ -32,6 +32,8 @@ $googleplus            = $this->params->get('googleplus');
 $googleplusLink        = $this->params->get('googleplusLink');
 $github                = $this->params->get('github');
 $githubLink            = $this->params->get('githubLink');
+$email                 = $this->params->get('email');
+$emailLink             = $this->params->get('emailLink');
 $debug                 = $this->params->get('debug');
 
 // Detecting Active Variables
@@ -84,8 +86,10 @@ if ( !$loadMoo ) {
 }
 // Self explanatory
 if ( !$bootBloatJS ) {
-  unset($doc->_scripts[$this->baseurl.'/media/jui/js/jquery.min.js']);
-  unset($doc->_scripts[$this->baseurl.'/media/jui/js/jquery-noconflict.js']);
+	if (!$jQuery) {
+	  unset($doc->_scripts[$this->baseurl.'/media/jui/js/jquery.min.js']);
+	  unset($doc->_scripts[$this->baseurl.'/media/jui/js/jquery-noconflict.js']);
+	}
   unset($doc->_scripts[$this->baseurl.'/media/jui/js/jquery-migrate.min.js']);
   unset($doc->_scripts[$this->baseurl.'/media/jui/js/bootstrap.min.js']);
   unset($doc->_scripts[$this->baseurl.'/media/system/js/tabs-state.js']);
@@ -93,11 +97,12 @@ if ( !$bootBloatJS ) {
 
 #----------------------------- Inject extras into the head -----------------------------#
 // Currently the latest minified version from Google. It's smaller than the Joomla version.
-if ($jQuery) {
+if ($jQuery && !bootBloatJS) {
+  // $doc->addScript('//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js');
   $doc->addScript($this->baseurl.'/templates/'.$this->template.'/js/jquery-1.8.2.min.js');
 }
 // Global styles
-$doc->addStyleSheet($template.'/css/style.css');
+$doc->addStyleSheet($template.'/css/template.css');
 // Google fonts styles
 if ($googleWebFonts != "") {
   $doc->addStyleSheet(''.$googleWebFonts.'');

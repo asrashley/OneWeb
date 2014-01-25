@@ -1,72 +1,74 @@
 /* ==========================================================================
-   Template:	Oneweb
-   Version: 	3.0 for Joomla 2.5, 3+
-   Created: 	April 2013
+Template:	Oneweb
+Version: 	3.0 for Joomla 2.5, 3+
+Created: 	April 2013
 
-   Author: 	Seth Warburton - Internet Inspired! - @nternetinspired
-   Copyright:	Seth Warburton - (C) 2013
-   License:	GNU/GPL v3 or later http://www.gnu.org/licenses/gpl-3.0.html
+Author: 	Seth Warburton - Internet Inspired! - @nternetinspired
+Copyright:	Seth Warburton - (C) 2013
+License:	GNU/GPL v3 or later http://www.gnu.org/licenses/gpl-3.0.html
 
-   Inspiration:	https://github.com/h5bp/html5-boilerplate
-		https://github.com/malarkey/320andup/
-		https://github.com/csswizardry/inuit.css
-   ========================================================================== *
- * INTRODUCTION
- * ============
- *
- * Oneweb is an Object Orientated framework and so attempts to separate out
- * everything into re-usable modules. Unlike most other frameworks it tries
- * to abstract the 'design' away from the layout. The intention is that you
- * never have to do battle with the framework.
- *
- * Breaking everything down into maintainable, and easily digestible, chunks
- * makes it easy to find and change what you want and separating the basic
- * design constructs from their styling makes it possible to easily update
- * the framework without breaking your 'design'.
- *
- * HOW DOES IT WORK?
- * =================
- *
- * The Oneweb framework handles basic layout and provides all the css 'tools',
- * while the UI template does all the pretty stuff.
- *
- * This file pulls in the Oneweb framework and any modules that are enabled
- * by default. After that elements are styled by pulling in modules from the
- * UI folder.
- *
- * Modifications to the framework should be made ONLY by overriding its
- * defaults from within the UI template, using the _variables.scss file.
- *
- * Within the UI folder you can do almost anything you want. For example, if
- * you want to add some widgets to your template drop _widgets.scss into the
- * ui folder and then import _widgets.scss using this file. You can also
- * enable the import of any framework modules that are disabled by default,
- * simply by setting the use paramter to true, e.g.,
- *
- * $use-wells:             true;
- *
- * STYLEGUIDE
- * ==========
- *
- * For my sanity an yours Oneweb has been authored according to a styleguide,
- * STYLEGUIDE.md
- *
-   ========================================================================== */
+Inspiration:	https://github.com/h5bp/html5-boilerplate
+	https://github.com/malarkey/320andup/
+	https://github.com/csswizardry/inuit.css
+========================================================================== *
+* INTRODUCTION
+* ============
+*
+* Oneweb is an Object Orientated framework and so attempts to separate out
+* everything into re-usable modules. Unlike most other frameworks it tries
+* to abstract the 'design' away from the layout. The intention is that you
+* never have to do battle with the framework.
+*
+* Breaking everything down into maintainable, and easily digestible, chunks
+* makes it easy to find and change what you want and separating the basic
+* design constructs from their styling makes it possible to easily update
+* the framework without breaking your 'design'.
+*
+* HOW DOES IT WORK?
+* =================
+*
+* The Oneweb framework handles basic layout and provides all the css 'tools',
+* while the UI template does all the pretty stuff.
+*
+* This file pulls in the Oneweb framework and any modules that are enabled
+* by default. After that elements are styled by pulling in modules from the
+* UI folder.
+*
+* Modifications to the framework should be made ONLY by overriding its
+* defaults from within the UI template, using the _variables.scss file.
+*
+* Within the UI folder you can do almost anything you want. For example, if
+* you want to add some widgets to your template drop _widgets.scss into the
+* ui folder and then import _widgets.scss using this file. You can also
+* enable the import of any framework modules that are disabled by default,
+* simply by setting the use paramter to true, e.g.,
+*
+* $use-wells:             true;
+*
+* STYLEGUIDE
+* ==========
+*
+* For my sanity an yours Oneweb has been authored according to a styleguide,
+* STYLEGUIDE.md
+*
+========================================================================== */
 /*
- * _variables.scss overrides framework defaults, and enables optional modules,
- * so it needs to be loaded first.
- *
- *
- * Any variables you find set in framework/_defaults.scss should be overridden
- * in ui/_variables.scss.
- */
+* _variables.scss overrides framework defaults, and enables optional modules,
+* so it needs to be loaded first.
+*
+*
+* Any variables you find set in framework/_defaults.scss should be overridden
+* in ui/_variables.scss.
+*/
 /* ==========================================================================
    	OPTIONAL MODULES
    ========================================================================== */
 /* ==========================================================================
    	OVERRIDE VARIABLES
    ========================================================================== */
+/* Capriola, Chewy, Courgette, Bangers,    best = "Averia Sans Libre" or  "Margarine" */
 /* Sets the html background dark for a faux footer. */
+/* rgb(41,41,41); */
 /* ==========================================================================
    	CUSTOM VARIABLES
    ========================================================================== */
@@ -168,7 +170,7 @@
  * increases.
  */
 /* Normalise default browser renderings to eliminate quirks. */
-/* normalize.css v2.1.0 | MIT License | git.io/normalize */
+/*! normalize.css v2.1.0 | MIT License | git.io/normalize */
 /* ==========================================================================
    HTML5 display definitions
    ========================================================================== */
@@ -618,9 +620,9 @@ ul {
 
 /* Define the root element styles. */
 html {
-  font: 100%/1.618 "Lato", sans-serif;
+  font: 100%/1.618 "Margarine", "Comic Sans MS", sans-serif;
   font-weight: 300;
-  background-color: #292929;
+  background-color: white;
   color: #333333;
   min-height: 100%;
   overflow-y: scroll;
@@ -666,7 +668,7 @@ samp {
   font-family: monospace; }
 
 pre {
-  background-color: #fcfcfc;
+  background-color: #b167c9;
   border: 1px solid #eeeeee;
   border-radius: 3px;
   padding: 1em; }
@@ -788,7 +790,7 @@ h5,
 .h5,
 h6,
 .h6 {
-  font-family: "Lato", sans-serif;
+  font-family: "Margarine", "Comic Sans MS", sans-serif;
   font-weight: 300;
   text-rendering: optimizelegibility;
   -moz-font-feature-settings: "liga=1, dlig=1";
@@ -876,15 +878,17 @@ img[height] {
     LINKS
    ========================================================================== */
 a {
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
   color: #cd6e57;
   text-decoration: none; }
   a:hover, a:focus {
     color: #ba5137; }
+
+.animate a {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease; }
 
 /* Back to top link. */
 a.to-top {
@@ -956,7 +960,7 @@ td {
 
 /* Striped tables. */
 .table-striped tbody tr:nth-of-type(odd) {
-  background-color: #fcfcfc; }
+  background-color: #b167c9; }
 
 /* ==========================================================================
     TYPE SIZING
@@ -1077,16 +1081,6 @@ abbr {
  * into discrete and easily maintainable modules.
  */
 /* ==========================================================================
-    BREADCRUMBS
-   ========================================================================== */
-.breadcrumb {
-  font-size: 0.813em;
-  margin-bottom: 0; }
-  .breadcrumb > li + li:before {
-    content: "\00BB" "\00A0";
-    padding: 0 0.20225em; }
-
-/* ==========================================================================
     BUTTONS
    ========================================================================== */
 .btn, .banner-row .download-link, .banner-row .respository-link,
@@ -1096,13 +1090,13 @@ abbr {
 .btn-danger,
 .btn-info,
 .btn-warning {
-  background-color: #fcfcfc;
+  background-color: #b167c9;
   border: 1px solid transparent;
   border-radius: 3px;
   cursor: pointer;
   display: inline-block;
   font-size: 100%;
-  font-family: "Lato", sans-serif;
+  font-family: "Margarine", "Comic Sans MS", sans-serif;
   font-weight: 400;
   line-height: 3;
   margin-right: 0.809em;
@@ -1118,7 +1112,7 @@ abbr {
   .btn-info:hover,
   .btn-warning:hover {
     text-decoration: none;
-    background-color: #efefef; }
+    background-color: #a754c2; }
   .btn:active, .banner-row .download-link:active, .banner-row .respository-link:active, .btn:focus, .banner-row .download-link:focus, .banner-row .respository-link:focus,
   .btn-primary:active,
   .btn-primary:focus,
@@ -1198,7 +1192,7 @@ abbr {
 .label-info {
   padding: .125em .25em;
   text-align: center;
-  background-color: #fcfcfc;
+  background-color: #b167c9;
   border-radius: 3px; }
 
 /* LABEL COLOURS */
@@ -1256,11 +1250,11 @@ abbr {
     NAVIGATION
    ========================================================================== */
 /* Remove list styles and throw child elements into a horizontal list. */
-.nav, .breadcrumb, .pagination ul, .pagenav, .social, .actions {
+.nav, .pagination ul, .pagenav, .social, .actions {
   list-style: none; }
-  .nav li, .breadcrumb li, .pagination ul li, .pagenav li, .social li, .actions li {
+  .nav li, .pagination ul li, .pagenav li, .social li, .actions li {
     display: inline-block; }
-    .nav li a, .breadcrumb li a, .pagination ul li a, .pagenav li a, .social li a, .actions li a {
+    .nav li a, .pagination ul li a, .pagenav li a, .social li a, .actions li a {
       padding: 0.20225em; }
 
 /* Creates a vertical list of blocky, finger-friendly, links. */
@@ -1309,13 +1303,6 @@ abbr {
 .well {
   display: block;
   padding: 1.618em; }
-
-/* ==========================================================================
-    CONTENT WRAPPER
-   ========================================================================== */
-.wrapper {
-  margin: 0 auto;
-  max-width: 45em; }
 
 /*
  * These following need to override some base element styles,
@@ -1435,7 +1422,7 @@ abbr {
 .eleven-twelfths {
   width: 91.666%; }
 
-@media only screen and (min-width: 20em) {
+@media only screen and (min-width: 25em) {
   /* Whole */
   .palm-one-whole {
     width: 100%; }
@@ -1526,10 +1513,10 @@ abbr {
     width: 50%; }
 
   /* Thirds */
-  .lap-one-third, .lap-two-sixths, .lap-four-twelfths, .copyright, .above-row .module {
+  .lap-one-third, .lap-two-sixths, .lap-four-twelfths, .social, .above-row .module {
     width: 33.333%; }
 
-  .lap-two-thirds, .lap-four-sixths, .lap-eight-twelfths, .social {
+  .lap-two-thirds, .lap-four-sixths, .lap-eight-twelfths, .copyright {
     width: 66.666%; }
 
   /* Quarters */
@@ -1546,7 +1533,7 @@ abbr {
   .lap-two-fifths, .lap-four-tenths, .logo {
     width: 40%; }
 
-  .lap-three-fifths, .lap-six-tenths, [role="navigation"] {
+  .lap-three-fifths, .lap-six-tenths {
     width: 60%; }
 
   .lap-four-fifths, .lap-eight-tenths {
@@ -1842,10 +1829,10 @@ abbr {
     width: 91.666%; } }
 /* Next up, the template UI! */
 /* ==========================================================================
-	Package:	Oneweb template UI
-	Version: 	1.0
-	Created: 	April 2013
-   ========================================================================== */
+Package:	Oneweb template UI
+Version: 	1.0
+Created: 	April 2013
+========================================================================== */
 /* ==========================================================================
    	LINKS
    ========================================================================== */
@@ -1958,7 +1945,7 @@ you can use the generic selector below, but it's slower:
     WELLS
    ========================================================================== */
 .well {
-  background: #fcfcfc;
+  background: #b167c9;
   border: 1px solid #eeeeee; }
 
 /* ==========================================================================
@@ -1999,10 +1986,15 @@ of adding icon classes in our markup. It's more awesome. */
 /* ==========================================================================
     LOGO
    ========================================================================== */
-@media only screen and (min-width: 45em) {
-  .logo {
-    margin-bottom: 0;
-    vertical-align: middle; } }
+.logo {
+  width: 100%;
+  font-family: "Margarine", "Comic Sans MS", sans-serif;
+  font-size: 1.5em; }
+  @media only screen and (min-width: 45em) {
+    .logo {
+      margin-bottom: 0;
+      vertical-align: middle;
+      font-size: 2.7em; } }
 
 /* ==========================================================================
     HEADER NAV
@@ -2010,7 +2002,14 @@ of adding icon classes in our markup. It's more awesome. */
 /* MAIN NAVIGATION */
 [role="navigation"] {
   font-variant: small-caps;
-  font-weight: 400; }
+  font-weight: 400;
+  /*AA:
+  	@include media-query(lap) {
+  		@extend .lap-three-fifths;
+  		text-align: right;
+  		vertical-align: middle;
+  	}
+  */ }
   [role="navigation"] ul {
     margin-bottom: 0; }
     [role="navigation"] ul > li {
@@ -2018,10 +2017,8 @@ of adding icon classes in our markup. It's more awesome. */
       [role="navigation"] ul > li a {
         display: block;
         padding: 0.4045em; }
-  @media only screen and (min-width: 45em) {
-    [role="navigation"] {
-      text-align: right;
-      vertical-align: middle; } }
+  [role="navigation"] .menu {
+    font-size: 2em; }
 
 /* ==========================================================================
     BANNER
@@ -2078,7 +2075,7 @@ of adding icon classes in our markup. It's more awesome. */
   color: #fff; }
 
 .credit-row {
-  background: #353535;
+  background: black;
   text-align: center;
   color: #fff; }
 
@@ -2086,14 +2083,17 @@ of adding icon classes in our markup. It's more awesome. */
 @media only screen and (min-width: 45em) {
   .social {
     margin-bottom: 0;
-    text-align: left; } }
+    text-align: center; }
+    .social > li {
+      font-size: 2em; } }
 
 /* social icons */
 .copyright {
   font-weight: 400; }
   @media only screen and (min-width: 45em) {
     .copyright {
-      text-align: right; } }
+      text-align: right;
+      padding-right: 2em; } }
 
 /* ==========================================================================
     ARTICLE ACTIONS
@@ -2138,7 +2138,7 @@ of adding icon classes in our markup. It's more awesome. */
    ========================================================================== */
 /* Make each module a grid item */
 .below-row {
-  background: #fcfcfc;
+  background: #b167c9;
   border-top: 1px solid #eeeeee;
   /* Offset the content container as we're padding the grid items */
   /* Make each module a grid item */ }
@@ -2150,3 +2150,211 @@ of adding icon classes in our markup. It's more awesome. */
     @media only screen and (min-width: 45em) {
       .below-row .module {
         padding-left: 1.618em; } }
+
+body {
+  max-width: 85em; }
+
+[role="navigation"], .credit-row .wrapper, .mobileMenu {
+  background-color: #b167c9;
+  background-color: #c886d9;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #c886d9), color-stop(100%, #b167c9));
+  background-image: -webkit-linear-gradient(#c886d9 0, #b167c9 100%);
+  background-image: linear-gradient(#c886d9 0, #b167c9 100%); }
+  [role="navigation"] a, .credit-row .wrapper a, .mobileMenu a {
+    color: white; }
+
+/* nav[role="navigation"] .menu > li {
+display: block;
+@include media-query(lap) {
+display: inline-block;
+}  
+} */
+[role="navigation"] .menu {
+  font-size: 1.2em; }
+  @media only screen and (min-width: 62em) {
+    [role="navigation"] .menu {
+      font-size: 1.5em; } }
+  @media only screen and (min-width: 90em) {
+    [role="navigation"] .menu {
+      font-size: 1.75em; } }
+  @media only screen and (min-width: 120em) {
+    [role="navigation"] .menu {
+      font-size: 2em; } }
+  [role="navigation"] .menu > li {
+    display: block; }
+    @media only screen and (min-width: 45em) {
+      [role="navigation"] .menu > li {
+        display: inline-block; } }
+  [role="navigation"] .menu li.active > a {
+    font-weight: bold;
+    color: #ffff99; }
+
+header > [role="navigation"] {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  overflow-y: hidden;
+  height: 0; }
+  @media only screen and (min-width: 45em) {
+    header > [role="navigation"] {
+      height: 4em;
+      line-height: 3em; } }
+
+header.expand-menu .mobileMenu {
+  height: 0; }
+header.expand-menu > [role="navigation"] {
+  height: 17.798em;
+  line-height: 1.618;
+  margin-right: 0; }
+
+.mobileMenu {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  width: 100%;
+  display: block;
+  padding: .5em .75em;
+  overflow-y: hidden; }
+  @media only screen and (min-width: 45em) {
+    .mobileMenu {
+      display: none; } }
+
+.credit-row {
+  background-color: white; }
+
+.main-row .wrapper {
+  padding: 0 1em;
+  margin-top: -1.618em; }
+  @media only screen and (min-width: 45em) {
+    .main-row .wrapper {
+      margin-top: 0; } }
+
+[role="main"].with-complementary {
+  width: 100%; }
+  @media only screen and (min-width: 45em) {
+    [role="main"].with-complementary {
+      float: right;
+      width: 72%; } }
+
+[role="complementary"] {
+  display: none; }
+  @media only screen and (min-width: 45em) {
+    [role="complementary"] {
+      display: block; } }
+
+[role="complementary"] .moduleleft {
+  width: 25%;
+  height: 27em;
+  font-size: 1.3em;
+  margin-left: -0.76923em;
+  background-color: black;
+  padding-top: 3em;
+  color: white; }
+  [role="complementary"] .moduleleft .comic {
+    font-family: "Margarine", "Comic Sans MS", sans-serif;
+    margin: 0 0.5em;
+    text-align: center; }
+
+.main-row .content {
+  padding-top: 0 !important; }
+
+.main-row .wrapper {
+  border-right: 1px solid #b167c9;
+  border-left: 1px solid #b167c9; }
+
+.main-row [role="complementary"].content {
+  padding-top: 0;
+  padding-bottom: 0; }
+
+header.content {
+  padding-bottom: 0 !important; }
+  header.content .logo {
+    padding-bottom: 0.5em; }
+  header.content .badge {
+    width: 1em;
+    height: 1em;
+    position: absolute;
+    top: 1.7em;
+    right: 1em;
+    display: none; }
+    @media only screen and (min-width: 45em) {
+      header.content .badge {
+        display: block; } }
+    @media only screen and (min-width: 62em) {
+      header.content .badge {
+        top: 1em;
+        height: 1.7em;
+        width: 1.7em; } }
+    @media only screen and (min-width: 90em) {
+      header.content .badge {
+        left: 28em;
+        right: auto; } }
+
+.animate .badge {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease; }
+
+h1, h2, h3, h4, h5 {
+  color: #cd6e57;
+  text-align: left; }
+
+.mismanagement h1, .mismanagement h2, .mismanagement h3, .categories-list h1, .categories-list h2, .categories-list h3 {
+  text-align: center; }
+
+.home-page .mugshots {
+  display: none; }
+  @media only screen and (min-width: 45em) {
+    .home-page .mugshots {
+      display: block; } }
+.home-page .mugshots img {
+  height: 7em;
+  max-width: 18%; }
+  @media only screen and (min-width: 45em) {
+    .home-page .mugshots img {
+      height: 8em; } }
+  @media only screen and (min-width: 62em) {
+    .home-page .mugshots img {
+      height: 12em; } }
+  @media only screen and (min-width: 90em) {
+    .home-page .mugshots img {
+      height: 15em; } }
+  @media only screen and (min-width: 120em) {
+    .home-page .mugshots img {
+      height: 17em; } }
+
+.weblink-category .weblink-category {
+  font-size: 1.5em; }
+
+.logo > a {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.no-background {
+  background-image: none;
+  background-color: white; }
+
+.article p + p {
+  text-indent: 0; }
+
+.article-body ul {
+  padding-left: 2em; }
+
+.email:before {
+  content: "\e00d"; }
+
+.com_contact .contact > h3 {
+  display: none; }
+
+.contact-name:before {
+  content: "Contact "; }
+
+.hidden {
+  display: none; }

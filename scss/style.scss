@@ -1,69 +1,69 @@
 
 /* ==========================================================================
-   Template:	Oneweb
-   Version: 	3.0 for Joomla 2.5, 3+
-   Created: 	April 2013
+Template:	Oneweb
+Version: 	3.0 for Joomla 2.5, 3+
+Created: 	April 2013
 
-   Author: 	Seth Warburton - Internet Inspired! - @nternetinspired
-   Copyright:	Seth Warburton - (C) 2013
-   License:	GNU/GPL v3 or later http://www.gnu.org/licenses/gpl-3.0.html
+Author: 	Seth Warburton - Internet Inspired! - @nternetinspired
+Copyright:	Seth Warburton - (C) 2013
+License:	GNU/GPL v3 or later http://www.gnu.org/licenses/gpl-3.0.html
 
-   Inspiration:	https://github.com/h5bp/html5-boilerplate
-		https://github.com/malarkey/320andup/
-		https://github.com/csswizardry/inuit.css
-   ========================================================================== *
- * INTRODUCTION
- * ============
- *
- * Oneweb is an Object Orientated framework and so attempts to separate out
- * everything into re-usable modules. Unlike most other frameworks it tries
- * to abstract the 'design' away from the layout. The intention is that you
- * never have to do battle with the framework.
- *
- * Breaking everything down into maintainable, and easily digestible, chunks
- * makes it easy to find and change what you want and separating the basic
- * design constructs from their styling makes it possible to easily update
- * the framework without breaking your 'design'.
- *
- * HOW DOES IT WORK?
- * =================
- *
- * The Oneweb framework handles basic layout and provides all the css 'tools',
- * while the UI template does all the pretty stuff.
- *
- * This file pulls in the Oneweb framework and any modules that are enabled
- * by default. After that elements are styled by pulling in modules from the
- * UI folder.
- *
- * Modifications to the framework should be made ONLY by overriding its
- * defaults from within the UI template, using the _variables.scss file.
- *
- * Within the UI folder you can do almost anything you want. For example, if
- * you want to add some widgets to your template drop _widgets.scss into the
- * ui folder and then import _widgets.scss using this file. You can also
- * enable the import of any framework modules that are disabled by default,
- * simply by setting the use paramter to true, e.g.,
- *
- * $use-wells:             true;
- *
- * STYLEGUIDE
- * ==========
- *
- * For my sanity an yours Oneweb has been authored according to a styleguide,
- * STYLEGUIDE.md
- *
-   ========================================================================== */
+Inspiration:	https://github.com/h5bp/html5-boilerplate
+	https://github.com/malarkey/320andup/
+	https://github.com/csswizardry/inuit.css
+========================================================================== *
+* INTRODUCTION
+* ============
+*
+* Oneweb is an Object Orientated framework and so attempts to separate out
+* everything into re-usable modules. Unlike most other frameworks it tries
+* to abstract the 'design' away from the layout. The intention is that you
+* never have to do battle with the framework.
+*
+* Breaking everything down into maintainable, and easily digestible, chunks
+* makes it easy to find and change what you want and separating the basic
+* design constructs from their styling makes it possible to easily update
+* the framework without breaking your 'design'.
+*
+* HOW DOES IT WORK?
+* =================
+*
+* The Oneweb framework handles basic layout and provides all the css 'tools',
+* while the UI template does all the pretty stuff.
+*
+* This file pulls in the Oneweb framework and any modules that are enabled
+* by default. After that elements are styled by pulling in modules from the
+* UI folder.
+*
+* Modifications to the framework should be made ONLY by overriding its
+* defaults from within the UI template, using the _variables.scss file.
+*
+* Within the UI folder you can do almost anything you want. For example, if
+* you want to add some widgets to your template drop _widgets.scss into the
+* ui folder and then import _widgets.scss using this file. You can also
+* enable the import of any framework modules that are disabled by default,
+* simply by setting the use paramter to true, e.g.,
+*
+* $use-wells:             true;
+*
+* STYLEGUIDE
+* ==========
+*
+* For my sanity an yours Oneweb has been authored according to a styleguide,
+* STYLEGUIDE.md
+*
+========================================================================== */
 
 @import 'bourbon/bourbon';
 
 /*
- * _variables.scss overrides framework defaults, and enables optional modules,
- * so it needs to be loaded first.
- *
- *
- * Any variables you find set in framework/_defaults.scss should be overridden
- * in ui/_variables.scss.
- */
+* _variables.scss overrides framework defaults, and enables optional modules,
+* so it needs to be loaded first.
+*
+*
+* Any variables you find set in framework/_defaults.scss should be overridden
+* in ui/_variables.scss.
+*/
 @import "variables";
 
 /* Now, let's bring in the framework! */
@@ -71,10 +71,10 @@
 
 /* Next up, the template UI! */
 /* ==========================================================================
-	Package:	Oneweb template UI
-	Version: 	1.0
-	Created: 	April 2013
-   ========================================================================== */
+Package:	Oneweb template UI
+Version: 	1.0
+Created: 	April 2013
+========================================================================== */
 
 // ELEMENTS:
 @import "ui/elements/links";
@@ -100,38 +100,94 @@
 @import "ui/objects/above-row-modules";
 @import "ui/objects/below-row-modules";
 
-[role="navigation"], .credit-row .wrapper { 
-  background-color: $menu-background;
-  @include  linear-gradient(#C886D9 0, #B167C9 100%);
-  a {
-    color: white;
-  }
+body {
+max-width: $body-max-width;
 }
 
-[role="navigation"] .nav > li {
+[role="navigation"], .credit-row .wrapper, .mobileMenu {
+background-color: $menu-background;
+@include  linear-gradient(#C886D9 0, #B167C9 100%);
+a {
+color: white;
+}
+}
+
+/* nav[role="navigation"] .menu > li {
+display: block;
+@include media-query(lap) {
+display: inline-block;
+}  
+} */
+
+[role="navigation"] .menu {
+font-size: 1.2em;
+@include media-query(portable) {
+font-size: 1.5em;
+}
+@include media-query(desk) {
+font-size: 1.75em;
+}
+@include media-query(deskwide) {
+font-size: 2em;
+}
+> li {
   display: block;
-  @include media-query(palm) {
+  @include media-query(lap) {
     display: inline-block;
   }  
 }
+li.active > a {
+font-weight: bold;
+color: #ffff99;
+}
+}
 
-body {
-  max-width: $body-max-width;
+$menu-height: 4em;
+
+header >  [role="navigation"] {
+@include transition;
+overflow-y: hidden;
+height: 0;
+@include media-query(lap) {
+height: $menu-height;
+line-height: 3em;
+}
+}
+
+header.expand-menu {
+	.mobileMenu {
+		height: 0;
+	}
+	>  [role="navigation"] {
+		height: #{(11*$root-line-height)}em;
+		line-height: $root-line-height;
+		margin-right: 0;
+	}
+}
+
+.mobileMenu {
+  @include transition;
+  width: 100%; 
+  display:block;
+  padding:.5em .75em;
+  overflow-y: hidden;
+  @include media-query(lap) {
+    display: none;
+  }
 }
 
 .credit-row {
   background-color: $body-background;
 }
 
-/*
-.content {
-  background-image: url("../images/bg.gif");
-  background-repeat: repeat-x;
-} */
-
 .main-row .wrapper {
   padding: 0 $wrapper-side-padding;
+  margin-top: #{-($root-line-height)}em;
+  @include media-query(lap) {
+	margin-top: 0;
+  }
 }
+
 [role="main"].with-complementary {
   width: 100%;
   @include media-query(lap) {
@@ -154,10 +210,6 @@ body {
   font-size: $font-size;
   margin-left: #{-($wrapper-side-padding / $font-size)}em;
   background-color: black;
-  /*background-image: url('/images/stories/tunnel-bg.png');
-  background-repeat: repeat-y;
-  background-position: right top;
-  background-size: 100%;*/
   padding-top: 3em;
   color: white;
   .comic {
@@ -283,3 +335,9 @@ h1, h2, h3, h4, h5 {
 .contact-name:before {
   content:"Contact ";
 }
+
+.hidden {
+	display: none;
+}
+
+

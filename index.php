@@ -32,10 +32,11 @@ include_once JPATH_THEMES . '/' . $this->template . '/logic.php';
                 <header role="banner" class="content">
                     <div class="logo">
                         <a href="<?php echo $this->baseurl ?>/" title="<?php echo htmlspecialchars($app->getCfg('sitename'));?>"><?php echo htmlspecialchars($app->getCfg('sitename'));?></a>
-                        <img src="/images/stories/w-nk-badge.png" alt="" title="W&NKER" class="badge" />
+                        <img src="/images/stories/w-nk-badge.png" height="143" width="143" alt="" title="W&NKER" class="badge" />
                     </div>
                     <?php if($this->countModules('menu')) : ?>
-                        <nav role="navigation">
+			 <a class="mobileMenu" href="?menu=show" title="Expand menu">Menu</a>
+			<nav role="navigation" class="menu-row">
                             <jdoc:include type="modules" name="menu" style="gangnam" />
                         </nav>
                     <?php endif; ?>

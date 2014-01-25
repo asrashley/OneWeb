@@ -12,7 +12,7 @@
 jQuery("html").removeClass("no-js").addClass("js-enabled");
 
 jQuery(document).ready(function(){
-
+	'use strict';
 	// Touch? Screen type?
 	jQuery().deviceHooks();
 
@@ -47,6 +47,12 @@ jQuery(".to-top").fadeOut();
         },
        800);
       });
+    });
+
+    jQuery('.mobileMenu').click(function(ev){
+	ev.preventDefault();
+	jQuery('header[role="banner"]').addClass('expand-menu');
+	return false;
     });
 
  });
