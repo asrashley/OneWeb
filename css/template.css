@@ -2202,9 +2202,9 @@ header > [role="navigation"] {
       height: 4em;
       line-height: 3em; } }
 
-header.expand-menu .mobileMenu {
+header.expand-menu .mobileMenu, .no-js header .mobileMenu {
   height: 0; }
-header.expand-menu > [role="navigation"] {
+header.expand-menu > [role="navigation"], .no-js header > [role="navigation"] {
   height: 17.798em;
   line-height: 1.618;
   margin-right: 0; }
