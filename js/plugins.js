@@ -99,31 +99,59 @@ if(typeof(window.jQuery)=="undefined"){
  * Date: 30 April 2013
  */
 
+
 (function( $ ) {
+  'use strict';
+  var sizeClasses=[ "dumb","lap","palm","portable","desk","desk-wide" ];
   $.fn.deviceHooks = function() {
 
+      function updateClass(clz){
+    var i;
+    var htmlElem;
+    if(typeof(document.getElementsByTagName)=="function"){
+        htmlElem = document.getElementsByTagName("html")[0];
+        for(i=0; i<sizeClasses.length; ++i){
+            if(clz==sizeClasses[i]){
+                htmlElem.classList.add(sizeClasses[i]);
+            }
+            else {
+                htmlElem.classList.remove(sizeClasses[i]);
+            }
+        }
+    }
+    else{
+      htmlElem = $("html");
+      for(i=0; i<sizeClasses.length; ++i){
+        if(clz==sizeClasses[i]){
+            htmlElem.addClass(sizeClasses[i]);
+        }
+        else {
+            htmlElem.removeClass(sizeClasses[i]);
+        }
+      }
+    }
+      }
       var resizer = function() {
+          var width = $(window).width();
 
-          if ($(window).width() > 319) {
-              $("html").removeClass("dumb").removeClass("lap").addClass("palm");
+          if (width > 1919) {
+          updateClass("desk-wide");
           }
-
-          if ($(window).width() > 719) {
-              $("html").removeClass("palm").removeClass("portable").addClass("lap");
+          else if (width > 1439) {
+          updateClass("desk");
           }
-
-          if ($(window).width() > 991) {
-              $("html").removeClass("lap").removeClass("desk").addClass("portable");
+          else if (width > 991) {
+          updateClass("portable");
           }
-
-          if ($(window).width() > 1439) {
-              $("html").removeClass("portable").removeClass("desk-wide").addClass("desk");
+          else if (width > 719) {
+          updateClass("lap");
           }
-
-          if ($(window).width() > 1919) {
-              $("html").removeClass("desk").addClass("desk-wide");
+          else if (width > 319) {
+          updateClass("palm");
           }
-
+      else {
+          updateClass("");
+          }
       };
 
       // Call once to set.
