@@ -9,8 +9,14 @@
 
 // Append some styling hooks related to device capabilities to html and body elements
 // Got js?
-jQuery("html").removeClass("no-js").addClass("js-enabled");
-
+if(typeof(document.getElementsByTagName)=="function"){
+	document.getElementsByTagName("html")[0].classList.remove('no-js');
+	document.getElementsByTagName("html")[0].classList.add('js-enabled');
+}
+else{
+	jQuery("html").removeClass("no-js").addClass("js-enabled");
+}
+if(typeof(window.jQuery)!="undefined"){
 jQuery(document).ready(function(){
 	'use strict';
 	// Touch? Screen type?
@@ -56,3 +62,4 @@ jQuery(".to-top").fadeOut();
     });
 
  });
+}

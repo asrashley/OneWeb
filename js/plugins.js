@@ -17,6 +17,79 @@ window.log = function(){
 
 // place any jQuery/helper plugins in here, instead of separate, slower script files.
 
+/* A very thin shim for a few jQuery functions to allow the scripts in
+   this file to work */
+if(typeof(window.jQuery)=="undefined"){
+  window.jQuery = function(selector){
+    var rv, items=[];
+    if(typeof(document.querySelectorAll)=="function" && typeof(selector)=="string"){
+      items = document.querySelectorAll(selector);
+    }
+    else {
+      items=[selector];
+    }
+    rv = {
+    addClass: function(clz){
+      var i;
+      for(i=0; i<items.length; ++i){
+        if(items[i].classList){
+            items[i].classList.add(clz);
+        }
+        else{
+            items[i].className += ' '+clz;
+        }
+      }
+      return rv;
+    },
+    removeClass: function(clz){
+      var i;
+      for(i=0; i<items.length; ++i){
+        if(items[i].classList){
+            items[i].classList.remove(clz);
+        }
+        else{
+            items[i].className = items[i].className.replace(new RegExp('('+clz+' )|( '+clz+')'),'');
+        }
+      }
+      return rv;
+    },
+    on : function(ev,fn) {
+      var i;
+      for(i=0; i<items.length; ++i){
+        items[i].addEventListener(ev,fn);
+      }
+    },
+    off : function(ev,fn) {
+      var i;
+      for(i=0; i<items.length; ++i){
+        items[i].removeEventListener(ev,fn);
+      }
+    },
+    width: function() {
+      var i, elm, rv=0;
+      for(i=0; i<items.length; ++i){
+        elm = items[i];
+        if(elm==window){
+          elm = document.getElementsByTagName("html")[0];
+        }
+        rv += Math.max(elm.clientWidth, elm.offsetWidth);
+      }
+      return rv;
+    },
+    ready: function(fn) {
+      document.addEventListener("DOMContentLoaded",fn);
+    }
+    };
+    return rv;
+  };
+  window.jQuery.fn={facade:true};
+  document.addEventListener("DOMContentLoaded",function(){
+    if(typeof(jQuery.fn.deviceHooks)=="function"){
+      jQuery.fn.deviceHooks();
+    }
+  });
+}
+
 /*
  * OneWeb v3.0
  * Author: Seth Warburton
@@ -26,31 +99,66 @@ window.log = function(){
  * Date: 30 April 2013
  */
 
+
 (function( $ ) {
+  'use strict';
+  var sizeClasses=[ "dumb","lap","palm","portable","desk","desk-wide" ];
   $.fn.deviceHooks = function() {
 
+      function updateClass(clz){
+    var i;
+    var htmlElem;
+    if(typeof(document.getElementsByTagName)=="function"){
+        htmlElem = document.getElementsByTagName("html")[0];
+        for(i=0; i<sizeClasses.length; ++i){
+            if(clz==sizeClasses[i]){
+                htmlElem.classList.add(sizeClasses[i]);
+            }
+            else {
+                htmlElem.classList.remove(sizeClasses[i]);
+            }
+        }
+    }
+    else{
+      htmlElem = $("html");
+      for(i=0; i<sizeClasses.length; ++i){
+        if(clz==sizeClasses[i]){
+            htmlElem.addClass(sizeClasses[i]);
+        }
+        else {
+            htmlElem.removeClass(sizeClasses[i]);
+        }
+      }
+    }
+      }
       var resizer = function() {
+          var width = $(window).width();
+          var bodyFontSize = Number(getComputedStyle(document.body,null).fontSize.replace(/[^\d]/g, ''));
+          /* break points are defined in _defaults.scss using em units */
+          var palm=20 * bodyFontSize;
+          var lap=45 * bodyFontSize;
+          var portable=62 * bodyFontSize;
+          var desk=90 * bodyFontSize;
+          var deskwide=1900; /* 118 * bodyFontSize */;
 
-          if ($(window).width() > 319) {
-              $("html").removeClass("dumb").removeClass("lap").addClass("palm");
+          if (width >= deskwide) {
+            updateClass("desk-wide");
           }
-
-          if ($(window).width() > 719) {
-              $("html").removeClass("palm").removeClass("portable").addClass("lap");
+          else if (width >= desk) {
+            updateClass("desk");
           }
-
-          if ($(window).width() > 991) {
-              $("html").removeClass("lap").removeClass("desk").addClass("portable");
+          else if (width >= portable) {
+            updateClass("portable");
           }
-
-          if ($(window).width() > 1439) {
-              $("html").removeClass("portable").removeClass("desk-wide").addClass("desk");
+          else if (width >= lap) {
+            updateClass("lap");
           }
-
-          if ($(window).width() > 1919) {
-              $("html").removeClass("desk").addClass("desk-wide");
+          else if (width >= palm) {
+            updateClass("palm");
           }
-
+          else {
+            updateClass("");
+          }
       };
 
       // Call once to set.
