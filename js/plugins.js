@@ -134,7 +134,7 @@ if(typeof(window.jQuery)=="undefined"){
       var resizer = function() {
           var width = $(window).width();
 
-          if (width > 1919) {
+          if (width > 1900) {
           updateClass("desk-wide");
           }
           else if (width > 1439) {
