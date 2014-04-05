@@ -133,24 +133,31 @@ if(typeof(window.jQuery)=="undefined"){
       }
       var resizer = function() {
           var width = $(window).width();
+          var bodyFontSize = Number(getComputedStyle(document.body,null).fontSize.replace(/[^\d]/g, ''));
+          /* break points are defined in _defaults.scss using em units */
+          var palm=20 * bodyFontSize;
+          var lap=45 * bodyFontSize;
+          var portable=62 * bodyFontSize;
+          var desk=90 * bodyFontSize;
+          var deskwide=1900; /* 118 * bodyFontSize */;
 
-          if (width > 1900) {
-          updateClass("desk-wide");
+          if (width >= deskwide) {
+            updateClass("desk-wide");
           }
-          else if (width > 1439) {
-          updateClass("desk");
+          else if (width >= desk) {
+            updateClass("desk");
           }
-          else if (width > 991) {
-          updateClass("portable");
+          else if (width >= portable) {
+            updateClass("portable");
           }
-          else if (width > 719) {
-          updateClass("lap");
+          else if (width >= lap) {
+            updateClass("lap");
           }
-          else if (width > 319) {
-          updateClass("palm");
+          else if (width >= palm) {
+            updateClass("palm");
           }
-      else {
-          updateClass("");
+          else {
+            updateClass("");
           }
       };
 
