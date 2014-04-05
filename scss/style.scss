@@ -120,38 +120,41 @@ display: inline-block;
 } */
 
 [role="navigation"] .menu {
-font-size: 1.2em;
-@include media-query(portable) {
-font-size: 1.5em;
-}
-@include media-query(desk) {
-font-size: 1.75em;
-}
-@include media-query(deskwide) {
-font-size: 2em;
-}
-> li {
-  display: block;
-  @include media-query(lap) {
-    display: inline-block;
-  }  
-}
-li.active > a {
-font-weight: bold;
-color: #ffff99;
-}
+  font-size: 1.2em;
+  @include media-query(portable) {
+    font-size: 1.5em;
+  }
+  @include media-query(desk) {
+    font-size: 1.75em;
+  }
+  @include media-query(deskwide) {
+    font-size: 2em;
+  }
+  > li {
+    display: block;
+    @include media-query(lap) {
+      display: inline-block;
+    }  
+  }
+  li.active > a {
+    font-weight: bold;
+    color: #ffff99;
+  }
 }
 
 $menu-height: 4em;
 
 header >  [role="navigation"] {
-@include transition;
-overflow-y: hidden;
-height: 0;
-@include media-query(lap) {
-height: $menu-height;
-line-height: 3em;
+  overflow-y: hidden;
+  height: 0;
+  @include media-query(lap) {
+    height: $menu-height;
+    line-height: 3em;
+  }
 }
+
+.no-js header >  [role="navigation"], .animate header >  [role="navigation"] {
+  @include transition;
 }
 
 header.expand-menu, .no-js header {

@@ -25,8 +25,6 @@
 	}
 
 	.content {
-		@include transition(padding .3s ease);
-
 		@include media-query(lap) {
 			padding: $single-spacing-unit*1.5 0 $half-spacing-unit;
 		}
@@ -39,4 +37,7 @@
 			padding: $single-spacing-unit*3 0 $double-spacing-unit;
 		}
 	}
+  .no-js .content, .animate .content {
+    @include transition(padding .3s ease);
+  }
 }

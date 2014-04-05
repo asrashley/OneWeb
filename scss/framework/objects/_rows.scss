@@ -6,7 +6,6 @@
 
 	/* Gives the content sections some breathing space */
 	[class*="-row"] {
-		@include transition(padding .3s ease);
 		padding: 0 $single-spacing-unit;
 
 		.content {
@@ -20,6 +19,10 @@
 				padding: $single-spacing-unit*2 0 $single-spacing-unit;
 			}
 		}
+	}
+
+  .no-js [class*="-row"], .animate [class*="-row"] {
+    @include transition(padding .3s ease);
 	}
 
 }//endif

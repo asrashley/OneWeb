@@ -19,6 +19,12 @@ else{
 if(typeof(window.jQuery)!="undefined"){
 jQuery(document).ready(function(){
 	'use strict';
+	if(typeof(document.getElementsByTagName)=="function"){
+		document.getElementsByTagName("html")[0].classList.add('animate');
+	}
+	else{
+		jQuery("html").addClass("animate");
+	}
 	// Touch? Screen type?
 	jQuery().deviceHooks();
 

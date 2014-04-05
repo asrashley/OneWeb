@@ -654,7 +654,7 @@ body {
     FLUID TYPE
    ========================================================================== */
 /* Slowly increase root font size with viewport */
-@media only screen and (min-width: 90em) {
+@media only screen and (min-width: 85em) {
   html {
     font-size: 106.3%; } }
 
@@ -1285,17 +1285,19 @@ abbr {
    ========================================================================== */
 /* Gives the content sections some breathing space */
 [class*="-row"] {
+  padding: 0 1.618em; }
+  [class*="-row"] .content {
+    padding: 1.618em 0 0; }
+    @media only screen and (min-width: 85em) {
+      [class*="-row"] .content {
+        padding: 2.427em 0 0.809em; } }
+
+.no-js [class*="-row"], .animate [class*="-row"] {
   -webkit-transition: padding 0.3s ease;
   -moz-transition: padding 0.3s ease;
   -ms-transition: padding 0.3s ease;
   -o-transition: padding 0.3s ease;
-  transition: padding 0.3s ease;
-  padding: 0 1.618em; }
-  [class*="-row"] .content {
-    padding: 1.618em 0 0; }
-    @media only screen and (min-width: 90em) {
-      [class*="-row"] .content {
-        padding: 2.427em 0 0.809em; } }
+  transition: padding 0.3s ease; }
 
 /* ==========================================================================
     WELLS
@@ -1665,7 +1667,7 @@ abbr {
 
   .portable-eleven-twelfths {
     width: 91.666%; } }
-@media only screen and (min-width: 90em) {
+@media only screen and (min-width: 85em) {
   /* Whole */
   .desk-one-whole {
     width: 100%; }
@@ -1746,7 +1748,7 @@ abbr {
 
   .desk-eleven-twelfths {
     width: 91.666%; } }
-@media only screen and (min-width: 120em) {
+@media only screen and (min-width: 118em) {
   /* Whole */
   .deskwide-one-whole {
     width: 100%; }
@@ -2002,14 +2004,7 @@ of adding icon classes in our markup. It's more awesome. */
 /* MAIN NAVIGATION */
 [role="navigation"] {
   font-variant: small-caps;
-  font-weight: 400;
-  /*AA:
-  	@include media-query(lap) {
-  		@extend .lap-three-fifths;
-  		text-align: right;
-  		vertical-align: middle;
-  	}
-  */ }
+  font-weight: 400; }
   [role="navigation"] ul {
     margin-bottom: 0; }
     [role="navigation"] ul > li {
@@ -2031,18 +2026,18 @@ of adding icon classes in our markup. It's more awesome. */
   .banner-row h1,
   .banner-row h2 {
     color: #fff; }
-  .banner-row .content {
+  @media only screen and (min-width: 45em) {
+    .banner-row .content {
+      padding: 2.427em 0 0.809em; } }
+  @media only screen and (min-width: 85em) {
+    .banner-row .content {
+      padding: 3.236em 0 1.618em; } }
+  .banner-row .no-js .content, .banner-row .animate .content {
     -webkit-transition: padding 0.3s ease;
     -moz-transition: padding 0.3s ease;
     -ms-transition: padding 0.3s ease;
     -o-transition: padding 0.3s ease;
     transition: padding 0.3s ease; }
-    @media only screen and (min-width: 45em) {
-      .banner-row .content {
-        padding: 2.427em 0 0.809em; } }
-    @media only screen and (min-width: 90em) {
-      .banner-row .content {
-        padding: 3.236em 0 1.618em; } }
 
 /* ==========================================================================
     FOOTER
@@ -2174,10 +2169,10 @@ display: inline-block;
   @media only screen and (min-width: 62em) {
     [role="navigation"] .menu {
       font-size: 1.5em; } }
-  @media only screen and (min-width: 90em) {
+  @media only screen and (min-width: 85em) {
     [role="navigation"] .menu {
       font-size: 1.75em; } }
-  @media only screen and (min-width: 120em) {
+  @media only screen and (min-width: 118em) {
     [role="navigation"] .menu {
       font-size: 2em; } }
   [role="navigation"] .menu > li {
@@ -2190,17 +2185,19 @@ display: inline-block;
     color: #ffff99; }
 
 header > [role="navigation"] {
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
   overflow-y: hidden;
   height: 0; }
   @media only screen and (min-width: 45em) {
     header > [role="navigation"] {
       height: 4em;
       line-height: 3em; } }
+
+.no-js header > [role="navigation"], .animate header > [role="navigation"] {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease; }
 
 header.expand-menu .mobileMenu, .no-js header .mobileMenu {
   height: 0; }
@@ -2289,7 +2286,7 @@ header.content {
         top: 1em;
         height: 1.7em;
         width: 1.7em; } }
-    @media only screen and (min-width: 90em) {
+    @media only screen and (min-width: 85em) {
       header.content .badge {
         left: 28em;
         right: auto; } }
@@ -2322,10 +2319,10 @@ h1, h2, h3, h4, h5 {
   @media only screen and (min-width: 62em) {
     .home-page .mugshots img {
       height: 12em; } }
-  @media only screen and (min-width: 90em) {
+  @media only screen and (min-width: 85em) {
     .home-page .mugshots img {
       height: 15em; } }
-  @media only screen and (min-width: 120em) {
+  @media only screen and (min-width: 118em) {
     .home-page .mugshots img {
       height: 17em; } }
 
