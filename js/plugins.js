@@ -17,6 +17,79 @@ window.log = function(){
 
 // place any jQuery/helper plugins in here, instead of separate, slower script files.
 
+/* A very thin shim for a few jQuery functions to allow the scripts in
+   this file to work */
+if(typeof(window.jQuery)=="undefined"){
+  window.jQuery = function(selector){
+    var rv, items=[];
+    if(typeof(document.querySelectorAll)=="function" && typeof(selector)=="string"){
+      items = document.querySelectorAll(selector);
+    }
+    else {
+      items=[selector];
+    }
+    rv = {
+    addClass: function(clz){
+      var i;
+      for(i=0; i<items.length; ++i){
+        if(items[i].classList){
+            items[i].classList.add(clz);
+        }
+        else{
+            items[i].className += ' '+clz;
+        }
+      }
+      return rv;
+    },
+    removeClass: function(clz){
+      var i;
+      for(i=0; i<items.length; ++i){
+        if(items[i].classList){
+            items[i].classList.remove(clz);
+        }
+        else{
+            items[i].className = items[i].className.replace(new RegExp('('+clz+' )|( '+clz+')'),'');
+        }
+      }
+      return rv;
+    },
+    on : function(ev,fn) {
+      var i;
+      for(i=0; i<items.length; ++i){
+        items[i].addEventListener(ev,fn);
+      }
+    },
+    off : function(ev,fn) {
+      var i;
+      for(i=0; i<items.length; ++i){
+        items[i].removeEventListener(ev,fn);
+      }
+    },
+    width: function() {
+      var i, elm, rv=0;
+      for(i=0; i<items.length; ++i){
+        elm = items[i];
+        if(elm==window){
+          elm = document.getElementsByTagName("html")[0];
+        }
+        rv += Math.max(elm.clientWidth, elm.offsetWidth);
+      }
+      return rv;
+    },
+    ready: function(fn) {
+      document.addEventListener("DOMContentLoaded",fn);
+    }
+    };
+    return rv;
+  };
+  window.jQuery.fn={facade:true};
+  document.addEventListener("DOMContentLoaded",function(){
+    if(typeof(jQuery.fn.deviceHooks)=="function"){
+      jQuery.fn.deviceHooks();
+    }
+  });
+}
+
 /*
  * OneWeb v3.0
  * Author: Seth Warburton
