@@ -65,6 +65,9 @@ if(typeof(window.jQuery)=="undefined"){
         items[i].removeEventListener(ev,fn);
       }
     },
+    click: function(fn){
+    	rv.on('click',fn);
+    },
     width: function() {
       var i, elm, rv=0;
       for(i=0; i<items.length; ++i){
@@ -78,16 +81,16 @@ if(typeof(window.jQuery)=="undefined"){
     },
     ready: function(fn) {
       document.addEventListener("DOMContentLoaded",fn);
+    },
+    deviceHooks: function() {
+      if(typeof(jQuery.fn.deviceHooks)=="function"){
+        jQuery.fn.deviceHooks();
+      }    	
     }
     };
     return rv;
   };
   window.jQuery.fn={facade:true};
-  document.addEventListener("DOMContentLoaded",function(){
-    if(typeof(jQuery.fn.deviceHooks)=="function"){
-      jQuery.fn.deviceHooks();
-    }
-  });
 }
 
 /*
