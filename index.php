@@ -154,8 +154,8 @@ include_once JPATH_THEMES . '/' . $this->template . '/logic.php';
         <?php endif; ?>
 
         <?php if ($scripts > 0) : ?>
-        	<script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/scripts.min.js"></script>
             <script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/plugins.min.js"></script>
+            <script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/scripts.min.js"></script>
         <?php endif; ?>
         <?php if ($analytics != "") : ?>
             <script>
