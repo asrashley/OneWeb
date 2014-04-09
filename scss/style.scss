@@ -343,4 +343,9 @@ h1, h2, h3, h4, h5 {
 	display: none;
 }
 
+.pg-detail-table {
+    @include media-query(lap) {
+	margin-top: -2em;
+    }
+}
 
