@@ -21,9 +21,14 @@ switch ($this->tmpl['detailwindow']) {
 
 echo '<table class="center pg-detail-table" >'
 	.'<tr>'
-	.'<td colspan="6" align="center" valign="middle" height="'.$this->tmpl['largeheight'].'"'
-	.' style="height:'.$this->tmpl['largeheight'].'px;vertical-align: middle;" >'
-	.'<div id="phocaGalleryImageBox" style="width:'.$this->item->realimagewidth.'px;margin: auto;padding: 0;">'
+	.'<td colspan="6" class="pg-image-cell" >'
+	.'<div id="phocaGalleryImageBox" ' ;
+if($this->item->realimagewidth > $this->item->realimageheight) {
+	echo ' class="pg-landscape" ';
+} else {
+	echo ' class="pg-portrait" ';
+}
+echo '>'
 	.$closeImage;
 			
 $titleDesc = '';
@@ -60,12 +65,12 @@ if ($this->tmpl['displaydescriptiondetail'] == 1) {
 }
 
 if ($this->tmpl['detailbuttons'] == 1){
-	echo '<tr>'
-	.'<td align="left" width="30%" style="padding-left:48px">'.$this->item->prevbutton.'</td>'
-	.'<td align="center">'.$this->item->slideshowbutton.'</td>'
-	.'<td align="center">'.str_replace("%onclickreload%", $this->tmpl['detailwindowreload'], $this->item->reloadbutton).'</td>'
+	echo '<tr class="pg-detail-buttons">'
+	.'<td >'.$this->item->prevbutton.'</td>'
+	.'<td >'.$this->item->slideshowbutton.'</td>'
+	.'<td >'.str_replace("%onclickreload%", $this->tmpl['detailwindowreload'], $this->item->reloadbutton).'</td>'
 	. $closeButton
-	.'<td align="right" width="30%" style="padding-right:48px">'.$this->item->nextbutton.'</td>'
+	.'<td >'.$this->item->nextbutton.'</td>'
 	.'</tr>';
 }
 
@@ -85,7 +90,7 @@ if ($this->tmpl['detailwindow'] == 7) {
 			echo JComments::showComments($this->item->id, 'com_phocagallery_images', JText::_('COM_PHOCAGALLERY_IMAGE') .' '. $this->item->title);
 		}
 	}
-	echo PhocaGalleryRenderFront::renderInfo();
+	echo '<div class="pg-powered-by">' . PhocaGalleryRenderFront::renderInfo() . '</div>';
 }
 echo '</div>';
 echo '<div id="phocaGallerySlideshowC" style="display:none"></div>';
