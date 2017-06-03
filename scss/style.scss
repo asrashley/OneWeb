@@ -349,3 +349,14 @@ h1, h2, h3, h4, h5 {
     }
 }
 
+#nextrun {
+  float: right;
+  .mod_events_latest_table tr {
+    border-bottom: 0;
+  }
+}
+a.ev_link_row:link, a.ev_link_row:visited, a.ev_link_row:hover,
+#jev_maincal .ev_td_li > p {
+  color: $link-color; 
+}
+
