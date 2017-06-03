@@ -5,7 +5,7 @@
    ========================================================================== */
 
 .well {
-	@extend .rounded;
+	/*@extend .rounded;*/
 	background: $brand-background;
 	border: 1px solid $brand-border;
 }
