@@ -351,6 +351,11 @@ h1, h2, h3, h4, h5 {
 
 #nextrun {
   float: right;
+  border: 2px solid $brand-color;
+  border-radius: 1em;
+  margin-right: 2em;
+  padding: 1em 1em 0 1em;
+  box-shadow: 6px 6px 6px 0px #4d4c4d;
   .mod_events_latest_table tr {
     border-bottom: 0;
   }
