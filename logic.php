@@ -14,6 +14,7 @@ $app                   = JFactory::getApplication();
 
 // Define shortcuts for template parameters
 $loadMoo               = $this->params->get('loadMoo');
+$loadDark              = $this->params->get('loadDark');
 $jQuery                = $this->params->get('jQuery');
 $bootBloatJS           = $this->params->get('bootBloatJS');
 $scripts               = $this->params->get('scripts');
@@ -102,7 +103,11 @@ if ($jQuery && !bootBloatJS) {
   $doc->addScript($this->baseurl.'/templates/'.$this->template.'/js/jquery-1.8.2.min.js');
 }
 // Global styles
-$doc->addStyleSheet($template.'/css/template.css');
+if ( $loadDark ) {
+  $doc->addStyleSheet($template.'/css/dark-template.css');
+} else {
+  $doc->addStyleSheet($template.'/css/template.css');
+}
 // Google fonts styles
 if ($googleWebFonts != "") {
   $doc->addStyleSheet(''.$googleWebFonts.'');

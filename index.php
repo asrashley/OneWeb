@@ -25,7 +25,7 @@ include_once JPATH_THEMES . '/' . $this->template . '/logic.php';
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 </head>
-    <body class="<?php echo $siteHome ; ?>-page <?php echo $option . " view-" . $view . " itemid-" . $itemid .  " " . $pageclass ."";?>">
+    <body class="<?php if($loadDark) { echo "dark" ; } ?> <?php echo $siteHome ; ?>-page <?php echo $option . " view-" . $view . " itemid-" . $itemid .  " " . $pageclass ."";?>">
       <div class="container">
         <div class="header-row">
             <div class="wrapper">

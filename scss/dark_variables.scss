@@ -1,0 +1,34 @@
+@import '_variables';
+
+/* ==========================================================================
+   	OVERRIDE VARIABLES
+   ========================================================================== */
+
+//
+// Place any variables that should override framework defaults here.
+//
+// e.g.;
+//
+// $root-font-family: Helvetica, "Helvetica Neue", sans-serif!;
+//
+// or:
+//
+// $heading-font-weight: 600;
+//
+$menu-background:  black;
+$sans-font-family: 'Open Sans',sans-serif;
+$serif-family:     'Forum', serif;
+$brand-color: 	   #BF9515; //
+$root-font-color:  #EFEFEF; // $brand-color;
+
+$brand-background:  $menu-background;
+$root-font-weight:      300;
+$heading-font-weight:   300;
+
+/* Sets the html background dark for a faux footer. */
+$root-background:      black;
+$body-background:      black;
+
+$link-color: $brand-color;
+$active-link-color: #ffff99;
+$menu-link-colour: $brand-color;

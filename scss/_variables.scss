@@ -34,23 +34,23 @@ $use-wrapper:           false;
 //
 // $heading-font-weight: 600;
 //
-$menu-background:  black;
 $sans-font-family: 'Open Sans',sans-serif;
 $serif-family:     'Forum', serif;
-$brand-color: 	   #BF9515; //
-$root-font-color:  #EFEFEF; // $brand-color;
+$brand-color: 	   #57440b; // dark yellow
+$root-font-color:  black; //
 
-$brand-background:  $menu-background;
 $root-font-weight:      300;
 $heading-font-weight:   300;
 
 /* Sets the html background dark for a faux footer. */
-$root-background:      black;
-$body-background:      black;
+$root-background:      #f3f3ef;
+$body-background:      #f3f3ef;
+$menu-background:  $body-background;
+$brand-background:  $root-background;
 
 $link-color: $brand-color;
-$active-link-color: #ffff99;
-$menu-link-color: white;
+$active-link-color: #990606;
+$menu-link-colour: $brand-color;
 
 $palm:                  25em!default;
 
