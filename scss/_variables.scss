@@ -34,21 +34,23 @@ $use-wrapper:           false;
 //
 // $heading-font-weight: 600;
 //
-$menu-background: rgb(177,103,201); 
-/* Capriola, Chewy, Courgette, Bangers,    best = "Averia Sans Libre" or  "Margarine" */
-$sans-font-family: 		'Margarine', "Comic Sans MS", sans-serif;
-$comic-family: $sans-font-family;
-$brand-color: 			#cd6e57;
+$menu-background:  black;
+$sans-font-family: 'Open Sans',sans-serif;
+$comic-family:     'Margarine', "Comic Sans MS", sans-serif;
+$serif-family:     'Forum', serif;
+$brand-color: 	   #BF9515; //
+$root-font-color:  #EFEFEF; // $brand-color;
 
 $brand-background:  $menu-background;
 $root-font-weight:      300;
 $heading-font-weight:   300;
 
 /* Sets the html background dark for a faux footer. */
-$root-background:      white; /* rgb(41,41,41); */
-$body-background:      rgb(255,255,255);
+$root-background:      black;
+$body-background:      black;
 
-$link-color: #cd6e57;
+$link-color: $brand-color;
+/* #cd6e57; */
 
 $palm:                  25em!default;
 

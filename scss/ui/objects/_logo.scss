@@ -9,7 +9,7 @@
 	@extend .kilo;
 
   width: 100%;
-  font-family: $comic-family;
+  font-family: $serif-family;
   font-size: 1.5em;
 
   @include media-query(lap) {

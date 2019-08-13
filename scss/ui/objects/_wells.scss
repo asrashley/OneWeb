@@ -4,6 +4,10 @@
     WELLS
    ========================================================================== */
 
+.rounded {
+         border-radius: $brand-radius;
+}
+
 .well {
 	@extend .rounded;
 	background: $brand-background;

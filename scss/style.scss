@@ -105,11 +105,21 @@ max-width: $body-max-width;
 }
 
 [role="navigation"], .credit-row .wrapper, .mobileMenu {
-background-color: $menu-background;
-@include  linear-gradient(#C886D9 0, #B167C9 100%);
-a {
-color: white;
+  background-color: $menu-background;
+  a {
+    color: white;
+  }
 }
+
+nav[role="navigation"] .module_menu .module-inner,
+.header-row a.mobileMenu {
+  border-top: $brand-color solid 1px;
+  border-bottom: $brand-color solid 1px;
+}
+
+.header-row a.mobileMenu {
+  margin: 0.5em auto 0 auto;
+  line-height: 1.5em;
 }
 
 /* nav[role="navigation"] .menu > li {
@@ -149,7 +159,7 @@ header >  [role="navigation"] {
   height: 0;
   @include media-query(lap) {
     height: $menu-height;
-    line-height: 3em;
+    line-height: 2em;
   }
 }
 
@@ -162,7 +172,7 @@ header.expand-menu, .no-js header {
 		height: 0;
 	}
 	>  [role="navigation"] {
-		height: #{(11*$root-line-height)}em;
+		height: #{(14*$root-line-height)}em;
 		line-height: $root-line-height;
 		margin-right: 0;
 	}
@@ -172,11 +182,18 @@ header.expand-menu, .no-js header {
   @include transition;
   width: 100%; 
   display:block;
-  padding:.5em .75em;
+  padding: 0.25em 0.5em;
   overflow-y: hidden;
+  font-size: 2.5em;
+  font-size: 2rem;
   @include media-query(lap) {
     display: none;
   }
+}
+
+.above-row 	{
+  width: 70%;
+  float: right;
 }
 
 .credit-row {
@@ -204,21 +221,25 @@ header.expand-menu, .no-js header {
   @include media-query(lap) {
     display: block;
   }
-}
-
-[role="complementary"] .moduleleft {
-  $font-size: 1.3em;
-  width: 25%;
-  height: 27em;
+  $font-size: 0.85em;
+  width: 100%;
+  @include media-query(lap) {
+    width: 25%;
+  }
+/*  height: 27em;*/
   font-size: $font-size;
-  margin-left: #{-($wrapper-side-padding / $font-size)}em;
+/*  margin-left: #{-($wrapper-side-padding / $font-size)}em; */
   background-color: black;
   padding-top: 3em;
   color: white;
-  .comic {
-    font-family: $comic-family;
-    margin: 0 0.5em;
-    text-align: center;
+  .opening-hours > h3,
+  .contact-details > h3 {
+    font-size: 1.25em;
+	font-weight: bold;
+    margin-bottom: 0.1em;
+  }
+  .contact-details > p {
+    margin-bottom: 0;
   }
 }
 
@@ -238,8 +259,49 @@ header.expand-menu, .no-js header {
 
 header.content {
   padding-bottom: 0 !important;
+  color: $root-font-color;
   .logo {
-    padding-bottom: 0.5em;
+    @include media-query(portable) {
+      margin-bottom: -1em;
+	}
+    padding-bottom: 0;
+    h2 {
+      font-size: 3rem; 
+      font-family: $serif-family;
+      text-align: center;
+	  width: 100%;
+	  margin-bottom: 0;
+	  line-height: 1.1em;
+    }
+    h3 {
+      font-size: 1em; 
+      font-family: $serif-family;
+      text-align: center;
+      width: 100%;
+    }
+	.lb1itemsContainer {
+	  margin-bottom: 0.5em;
+	}
+  }
+  .header, .header-left, .header-right {
+    display: inline-block;
+    text-align: center;
+  }
+  div.header {
+    width: 100%;
+	height: 3em;
+    @include media-query(lap) {
+	    width: 10em;
+	}
+	h2, h3 {
+	  color: $root-font-color;
+	}
+	h2 {
+	}
+  }
+  img.header {
+    max-height: 3em;
+    max-width: 3em;
   }
   .badge {
     width: 1em;
@@ -262,6 +324,20 @@ header.content {
     }
   }
 }
+header[role="banner"] {
+  .module-locale, .module-camra {
+    display: none;
+    @include media-query(portable) {
+	  display: block;
+    }
+  }
+  .header-left {
+    display: block;
+    @include media-query(palm) {
+	  display: inline-block;
+    }
+  }
+}
 
 .animate .badge {
   @include transition;
@@ -280,27 +356,14 @@ h1, h2, h3, h4, h5 {
   
 }
 .home-page {
-  .mugshots {
+  pre.slideshow {
     display: none;
     @include media-query(lap) {
       display: block;
     }
   }
-  .mugshots img {  
-    height: 7em;
-    max-width: 18%;
-    @include media-query(lap) {
-      height: 8em;
-    }
-    @include media-query(portable) {
-      height: 12em;
-    }
-    @include media-query(desk) {
-      height: 15em;
-    }
-    @include media-query(deskwide) {
-      height: 17em;
-    }
+  [role="complementary"] {
+    display: block;
   }
 }
 
@@ -343,4 +406,10 @@ h1, h2, h3, h4, h5 {
 	display: none;
 }
 
+.article-body .ngemodule-joomla {
+	margin-top: -2em;
+}
 
+#phocagallery .pg-cv-box:hover{
+ background: rgba(120, 120, 120, 0.5);
+}
