@@ -26,6 +26,9 @@
 		<folder>scss</folder>
 	</files>
 	<positions>
+		<position>header</position>
+		<position>header-left</position>
+		<position>header-right</position>
 		<position>menu</position>
 		<position>banner</position>
 		<position>above</position>

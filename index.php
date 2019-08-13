@@ -31,8 +31,23 @@ include_once JPATH_THEMES . '/' . $this->template . '/logic.php';
             <div class="wrapper">
                 <header role="banner" class="content">
                     <div class="logo">
-                        <a href="<?php echo $this->baseurl ?>/" title="<?php echo htmlspecialchars($app->getCfg('sitename'));?>"><?php echo htmlspecialchars($app->getCfg('sitename'));?></a>
-                        <img src="/images/stories/w-nk-badge.png" height="143" width="143" alt="" title="W&NKER" class="badge" />
+                    <?php if($this->countModules('header-left')) : ?>
+                      <div class="header-left">
+                        <jdoc:include type="modules" name="header-left" style="gangnam" />
+                      </div>
+                    <?php endif; ?>
+                    <?php if($this->countModules('header')) : ?>
+                      <div class="header">
+                        <jdoc:include type="modules" name="header" style="gangnam" />
+                      </div>
+                    <?php else : ?>
+                      <a href="<?php echo $this->baseurl ?>/" title="<?php echo htmlspecialchars($app->getCfg('sitename'));?>"><?php echo htmlspecialchars($app->getCfg('sitename'));?></a>
+                    <?php endif; ?>
+                    <?php if($this->countModules('header-right')) : ?>
+                      <div class="header-right">
+                        <jdoc:include type="modules" name="header-right" style="gangnam" />
+                      </div>
+                    <?php endif; ?>
                     </div>
                     <?php if($this->countModules('menu')) : ?>
 			 <a class="mobileMenu" href="?menu=show" title="Expand menu">Menu</a>
