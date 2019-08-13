@@ -99,6 +99,7 @@ Created: 	April 2013
 @import "ui/objects/article-info";
 @import "ui/objects/above-row-modules";
 @import "ui/objects/below-row-modules";
+@import "jevents";
 
 body {
 max-width: $body-max-width;
@@ -107,7 +108,7 @@ max-width: $body-max-width;
 [role="navigation"], .credit-row .wrapper, .mobileMenu {
   background-color: $menu-background;
   a {
-    color: white;
+    color: $menu-link-color;
   }
 }
 
@@ -148,7 +149,7 @@ display: inline-block;
   }
   li.active > a {
     font-weight: bold;
-    color: #ffff99;
+    color: $active-link-color;
   }
 }
 
@@ -229,9 +230,9 @@ header.expand-menu, .no-js header {
 /*  height: 27em;*/
   font-size: $font-size;
 /*  margin-left: #{-($wrapper-side-padding / $font-size)}em; */
-  background-color: black;
+  background-color: $root-background;
   padding-top: 3em;
-  color: white;
+  color: $root-font-color;
   .opening-hours > h3,
   .contact-details > h3 {
     font-size: 1.25em;

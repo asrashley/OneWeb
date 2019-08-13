@@ -36,7 +36,6 @@ $use-wrapper:           false;
 //
 $menu-background:  black;
 $sans-font-family: 'Open Sans',sans-serif;
-$comic-family:     'Margarine', "Comic Sans MS", sans-serif;
 $serif-family:     'Forum', serif;
 $brand-color: 	   #BF9515; //
 $root-font-color:  #EFEFEF; // $brand-color;
@@ -50,7 +49,8 @@ $root-background:      black;
 $body-background:      black;
 
 $link-color: $brand-color;
-/* #cd6e57; */
+$active-link-color: #ffff99;
+$menu-link-color: white;
 
 $palm:                  25em!default;
 
