@@ -312,3 +312,19 @@ h1, h2, h3, h4, h5 {
  background: rgba(120, 120, 120, 0.5);
 }
 
+.module-privacy {
+  margin: 0 2em;
+  .plg_system_eprivacy_accepted > p {
+    opacity: 0.5;
+    margin: 0;
+    line-height: 1em;
+ }
+}
+
+body {
+  margin: 0 auto;
+}
+
+.view-category .subcategories-title {
+  display: none;
+}
