@@ -3,7 +3,7 @@ body {
   margin: 0 auto;
 }
 
-[role="navigation"], .credit-row .wrapper, .mobileMenu {
+[role="navigation"], .credit-row .wrapper, .mobileMenu, [role="right"] .menu {
   background-color: $menu-background;
   a {
     color: $menu-link-colour;
@@ -28,7 +28,7 @@ display: inline-block;
 }
 } */
 
-[role="navigation"] .menu {
+[role="navigation"] .menu, [role="right"] .menu {
   font-size: 1.2em;
   @include media-query(portable) {
     font-size: 1.5em;
@@ -99,38 +99,38 @@ header.expand-menu, .no-js header {
   background-color: $body-background;
 }
 
-.main-row .wrapper {
-  padding: 0 $wrapper-side-padding;
-  margin-top: #{-($root-line-height)}em;
-  @include media-query(lap) {
-    margin-top: 0;
-  }
+.main-row > .wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
 }
 
-[role="main"].with-complementary {
-  width: 100%;
-  @include media-query(lap) {
-    float: right;
-    width: 72%;
-  }
+[role="main"] {
+  flex-basis: 60%;
+  flex-grow: 5;
+  order: 2;
+  margin: 0 2em;
 }
 
 [role="complementary"] {
+  $font-size: 0.85em;
+
+  align-self: flex-start;
+  background-color: $root-background;
+  color: $root-font-color;
   display: none;
+  flex-grow: 1;
+  flex-basis: 15%;
+  font-size: $font-size;
+  max-width: 60em;
+  order: 1;
+  padding-top: 3em;
+  width: 46em;
+
   @include media-query(lap) {
     display: block;
   }
-  $font-size: 0.85em;
-  width: 100%;
-  @include media-query(lap) {
-    width: 25%;
-  }
-/*  height: 27em;*/
-  font-size: $font-size;
-/*  margin-left: #{-($wrapper-side-padding / $font-size)}em; */
-  background-color: $root-background;
-  padding-top: 3em;
-  color: $root-font-color;
+
   .opening-hours > h3,
   .contact-details > h3 {
     font-size: 1.25em;
@@ -147,6 +147,23 @@ header.expand-menu, .no-js header {
       padding-right: 0.5em;
     }
   }
+  .opening-hours ul {
+    list-style-type: none;
+  }
+}
+
+[role="right"] {
+  align-self: flex-start;
+  flex-basis: 15%;
+  flex-grow: 1;
+  max-width: 55em;
+  order: 3;
+  width: 44em;
+}
+
+#my-account > li {
+    display: block;
+    line-height: 2em;
 }
 
 .main-row .content {
@@ -340,4 +357,44 @@ body {
 
 .view-category .subcategories-title {
   display: none;
+}
+
+#login-form {
+  margin-top: 3em;
+}
+
+.phItemCartBox .row > .ph-small {
+    display: inline-block;
+}
+
+.phItemCartBox .row {
+    @for $i from 1 through 12 {
+        .col-sm-#{$i}, .col-md-#{$i} {
+            width: 100% * ($i/12);
+        }
+    }
+}
+
+.ph-cart-module-box {
+    border: $brand-color solid 1px;
+    border-radius: 1em;
+    padding: 1em 0.5em;
+    margin-top: 1em;
+
+    .row {
+        margin: 0;
+    }
+
+    .ph-cart-link-checkout {
+        font-size: 1rem;
+
+        & > a {
+            text-decoration: none;
+        }
+    }
+}
+
+.ph-brands-module-box {
+    width: 30rem;
+    margin: 0 auto;
 }

@@ -33,26 +33,26 @@ include_once JPATH_THEMES . '/' . $this->template . '/logic.php';
                     <div class="logo">
                     <?php if($this->countModules('header-left')) : ?>
                       <div class="header-left">
-                        <jdoc:include type="modules" name="header-left" style="gangnam" />
+                        <jdoc:include type="modules" name="header-left"  />
                       </div>
                     <?php endif; ?>
                     <?php if($this->countModules('header')) : ?>
                       <div class="header">
-                        <jdoc:include type="modules" name="header" style="gangnam" />
+                        <jdoc:include type="modules" name="header"  />
                       </div>
                     <?php else : ?>
                       <a href="<?php echo $this->baseurl ?>/" title="<?php echo htmlspecialchars($app->getCfg('sitename'));?>"><?php echo htmlspecialchars($app->getCfg('sitename'));?></a>
                     <?php endif; ?>
                     <?php if($this->countModules('header-right')) : ?>
                       <div class="header-right">
-                        <jdoc:include type="modules" name="header-right" style="gangnam" />
+                        <jdoc:include type="modules" name="header-right"  />
                       </div>
                     <?php endif; ?>
                     </div>
                     <?php if($this->countModules('menu')) : ?>
-			 <a class="mobileMenu" href="?menu=show" title="Expand menu">Menu</a>
-			<nav role="navigation" class="menu-row">
-                            <jdoc:include type="modules" name="menu" style="gangnam" />
+             <a class="mobileMenu" href="?menu=show" title="Expand menu">Menu</a>
+            <nav role="navigation" class="menu-row">
+                            <jdoc:include type="modules" name="menu"  />
                         </nav>
                     <?php endif; ?>
                 </header>
@@ -63,7 +63,7 @@ include_once JPATH_THEMES . '/' . $this->template . '/logic.php';
             <div class="banner-row">
                 <div class="wrapper">
                     <section class="content">
-                        <jdoc:include type="modules" name="banner" style="gangnam" />
+                        <jdoc:include type="modules" name="banner"  />
                     </section>
                 </div>
             </div>
@@ -73,7 +73,7 @@ include_once JPATH_THEMES . '/' . $this->template . '/logic.php';
             <div class="breadcrumb-row">
                 <div class="wrapper">
                    <section class="content">
-                       <jdoc:include type="modules" name="breadcrumbs" style="gangnam" />
+                       <jdoc:include type="modules" name="breadcrumbs"  />
                     </section>
                 </div>
             </div>
@@ -83,7 +83,7 @@ include_once JPATH_THEMES . '/' . $this->template . '/logic.php';
             <div class="above-row">
                 <div class="wrapper">
                     <section class="content">
-                       <jdoc:include type="modules" name="above" style="gangnam" />
+                       <jdoc:include type="modules" name="above"  />
                     </section>
                 </div>
             </div>
@@ -92,13 +92,21 @@ include_once JPATH_THEMES . '/' . $this->template . '/logic.php';
         <?php if($siteHome != 'home' or ($frontpage == 0)) : ?>
         <div class="main-row clearfix">
             <div class="wrapper">
-                <main role="main" class="content clearfix <?php if($this->countModules('complementary')) : ?>with-complementary<?php endif; ?>">
+                <main role="main" class="content clearfix">
+                    <?php if($this->countModules('content')) : ?>
+                    <jdoc:include type="modules" name="content"  />
+                    <?php endif; ?>
                     <jdoc:include type="message" />
                     <jdoc:include type="component" />
                 </main>
                 <?php if($this->countModules('complementary')) : ?>
                 <div role="complementary" class="content clearfix">
-                    <jdoc:include type="modules" name="complementary" style="gangnam" />
+                    <jdoc:include type="modules" name="complementary"  />
+                </div>
+                <?php endif; ?>
+                <?php if($this->countModules('right')) : ?>
+                <div role="right" class="content clearfix">
+                    <jdoc:include type="modules" name="right"  />
                 </div>
                 <?php endif; ?>
             </div>
@@ -109,7 +117,7 @@ include_once JPATH_THEMES . '/' . $this->template . '/logic.php';
             <div class="below-row">
                 <div class="wrapper">
                     <section class="content">
-                        <jdoc:include type="modules" name="below" style="gangnam" />
+                        <jdoc:include type="modules" name="below"  />
                     </section>
                 </div>
             </div>
@@ -121,11 +129,11 @@ include_once JPATH_THEMES . '/' . $this->template . '/logic.php';
                     <footer role="contentinfo" class="content">
                         <?php if($this->countModules('footer-menu')) : ?>
                             <nav class="footer-menu">
-                                <jdoc:include type="modules" name="footer-menu" style="gangnam" />
+                                <jdoc:include type="modules" name="footer-menu"  />
                             </nav>
                         <?php endif; ?>
                         <?php if($this->countModules('contentinfo')) : ?>
-                            <jdoc:include type="modules" name="contentinfo" style="gangnam" />
+                            <jdoc:include type="modules" name="contentinfo"  />
                         <?php endif; ?>
                     </footer>
                 </div>
