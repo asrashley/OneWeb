@@ -21,13 +21,6 @@ nav[role="navigation"] .module_menu .module-inner,
   line-height: 1.5em;
 }
 
-/* nav[role="navigation"] .menu > li {
-display: block;
-@include media-query(lap) {
-display: inline-block;
-}
-} */
-
 [role="navigation"] .menu, [role="right"] .menu {
   font-size: 1.2em;
   @include media-query(portable) {
@@ -101,13 +94,17 @@ header.expand-menu, .no-js header {
 
 .main-row > .wrapper {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   width: 100%;
+
+  @include media-query(portable) {
+      flex-wrap: nowrap;
+  }
 }
 
 [role="main"] {
-  flex-basis: 60%;
-  flex-grow: 5;
+  flex-basis: 40em;
+  flex-grow: 20;
   order: 2;
   margin: 0 2em;
 }
@@ -118,17 +115,26 @@ header.expand-menu, .no-js header {
   align-self: flex-start;
   background-color: $root-background;
   color: $root-font-color;
-  display: none;
+  display: block;
+  flex-basis: 100%;
   flex-grow: 1;
-  flex-basis: 15%;
   font-size: $font-size;
-  max-width: 60em;
-  order: 1;
+  order: 3;
   padding-top: 3em;
-  width: 46em;
+  width: 100%;
 
-  @include media-query(lap) {
-    display: block;
+  @include media-query(portable) {
+      flex-basis: 18em;
+      max-width: 40em;
+      order: 1;
+  }
+
+  .newsflash {
+      display: none;
+
+      @include media-query(portable) {
+          display: block;
+      }
   }
 
   .opening-hours > h3,
@@ -154,11 +160,10 @@ header.expand-menu, .no-js header {
 
 [role="right"] {
   align-self: flex-start;
-  flex-basis: 15%;
+  flex-basis: 16em;
   flex-grow: 1;
   max-width: 55em;
-  order: 3;
-  width: 44em;
+  order: 4;
 }
 
 #my-account > li {
@@ -361,40 +366,4 @@ body {
 
 #login-form {
   margin-top: 3em;
-}
-
-.phItemCartBox .row > .ph-small {
-    display: inline-block;
-}
-
-.phItemCartBox .row {
-    @for $i from 1 through 12 {
-        .col-sm-#{$i}, .col-md-#{$i} {
-            width: 100% * ($i/12);
-        }
-    }
-}
-
-.ph-cart-module-box {
-    border: $brand-color solid 1px;
-    border-radius: 1em;
-    padding: 1em 0.5em;
-    margin-top: 1em;
-
-    .row {
-        margin: 0;
-    }
-
-    .ph-cart-link-checkout {
-        font-size: 1rem;
-
-        & > a {
-            text-decoration: none;
-        }
-    }
-}
-
-.ph-brands-module-box {
-    width: 30rem;
-    margin: 0 auto;
 }

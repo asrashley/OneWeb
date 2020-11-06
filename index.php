@@ -26,7 +26,7 @@ include_once JPATH_THEMES . '/' . $this->template . '/logic.php';
     <![endif]-->
 </head>
     <body class="<?php if($loadDark) { echo "dark" ; } ?> <?php echo $siteHome ; ?>-page <?php echo $option . " view-" . $view . " itemid-" . $itemid .  " " . $pageclass ."";?>">
-      <div class="container">
+      <div class="container-fluid">
         <div class="header-row">
             <div class="wrapper">
                 <header role="banner" class="content">

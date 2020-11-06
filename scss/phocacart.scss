@@ -1,0 +1,287 @@
+/*
+Styling for the phoca cart component, to that we don't need to load
+its main CSS file. This is required as it clashes with the main
+styling of the site.
+*/
+
+/* shopping cart */
+
+.phItemCartBox .row > .ph-small {
+    display: inline-block;
+}
+
+.phItemCartBox .row {
+    @for $i from 1 through 12 {
+        .col-sm-#{$i}, .col-md-#{$i} {
+            padding: 0;
+            width: 100% * ($i/12);
+        }
+    }
+    .ph-cart-small-price,
+    .ph-cart-total,
+    .ph-cart-total-txt,
+    .ph-b
+    {
+        font-weight: bold;
+    }
+
+    .ph-cart-subtotal-netto {
+        border-bottom: 1px solid $root-font-color;
+    }
+
+    .ph-right {
+        text-align: right;
+    }
+}
+
+.ph-cart-module-box {
+    border: $brand-color solid 1px;
+    border-radius: 1em;
+    font-size: 0.7rem;
+    padding: 1em 0.75em;
+    margin-top: 1em;
+
+    .row {
+        margin: 0;
+    }
+
+    .ph-cart-link-checkout {
+        font-size: 0.9rem;
+        font-weight: bold;
+        margin-top: 1em;
+
+        & > a {
+            text-decoration: none;
+        }
+    }
+}
+
+.ph-brands-module-box {
+    width: 30rem;
+    margin: 0 auto;
+}
+
+.phItemCartUpdateBoxForm {
+    margin: 0;
+
+    & > .form-group {
+        font-size: 0.6rem;
+
+        @include media-query(desk) {
+            font-size: 0.8rem;
+        }
+
+        & > .ph-input-quantity.ph-input-sm {
+            height: 2.5em;
+            width: 4em;
+            text-align: right;
+            margin-right: 1em;
+        }
+    }
+}
+
+/* Checkout view */
+
+.pc-checkout-view {
+    .row {
+        margin: 0;
+        padding: 0;
+    }
+
+    .row.ph-checkout-box-row {
+        margin-top: 2em;
+    }
+
+    .ph-checkout-box-header .ph-pull-right {
+        float: right;
+    }
+
+    .ph-account-box-header,
+    .ph-checkout-box-header {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px 4px 0 0;
+    }
+
+    .ph-checkout-icon-spec-finished,
+    .ph-checkout-icon-spec-pending {
+        color: #fff;
+        display: inline-block;
+        font-size: 120%;
+        font-weight: bold;
+        margin: 2px;
+        margin-right: -13px;
+        padding: 5px;
+        text-align: center;
+        width: 30px;
+    }
+
+    .ph-checkout-icon-spec-finished {
+        background: #5cb85c;
+    }
+
+    .ph-checkout-icon-spec-pending {
+        background: #ccc;
+    }
+
+    .ph-account-box-action,
+    .ph-checkout-box-action {
+        padding: 5px;
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        border-radius: 0px 0px 4px 4px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        background: #f9f9f9;
+    }
+
+    .ph-account-box-action .ph-box-header,
+    .ph-checkout-box-action .ph-box-header {
+        font-weight: bold;
+        color: #bbb;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+        margin-top: 0px;
+    }
+
+    .ph-li-inline li {
+        float: left;
+        margin-left: 2em;
+    }
+
+    .ph-checkout-confirm-box-row {
+        position: relative;
+        margin-bottom: 5em;
+    }
+
+    .ph-checkout-confirm {
+        position: absolute;
+        right: 2em;
+
+        .btn {
+            background-color: #e8e8e0;
+            border-color: #adadad;
+            color: #333;
+        }
+
+        .btn:hover {
+            background: #5cb85c;
+            color: #fff;
+        }
+    }
+}
+
+.phCheckoutCartBox {
+    margin-bottom: 2em;
+
+    .ph-checkout-cart-box {
+        margin: 0 1em;
+    }
+
+    .ph-checkout-cart-box > .row {
+        display: flex;
+        flex-wrap: nowrap;
+        margin: 0;
+        padding: 0;
+    }
+
+    .ph-checkout-cart-box > .row > div {
+        flex-grow: 1;
+        float: none;
+        margin: 0;
+        padding: 0;
+        width: auto;
+    }
+
+    .ph-checkout-cart-box > .row:first-child {
+        border-bottom: 1px solid $root-font-color;
+        font-weight: bold;
+        margin-bottom: 1em;
+
+        .ph-checkout-cart-image {
+            visibility: hidden;
+        }
+    }
+
+    .ph-checkout-cart-image {
+        display: none;
+        flex-basis: 5em;
+        width: auto;
+
+        @include media-query(desk) {
+            display: block;
+        }
+
+        & > .ph-row-image,
+        & > .ph-img-cart-checkout {
+            height: 3em;
+        }
+    }
+
+    .ph-checkout-cart-title {
+        flex-basis: 20em;
+        flex-grow: 10;
+        text-align: center;
+    }
+
+    .ph-checkout-cart-quantity {
+        flex-basis: 17em;
+        text-align: center;
+    }
+
+    .ph-checkout-cart-brutto,
+    .ph-checkout-total-amount,
+    .ph-cart-subtotal-netto {
+        flex-basis: 6em;
+        text-align: right;
+    }
+
+    .ph-cart-subtotal-box,
+    .ph-cart-total-box {
+        font-weight: bold;
+        justify-content: flex-end;
+    }
+}
+
+.ph-items > .ph-row-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ph-row-flex > .row-item {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    width: 15em;
+
+    @include media-query(portable) {
+        width: 18em;
+    }
+}
+
+.ph-item-box > .ph-thumbnail {
+    max-width: 18em;
+    padding: 1em;
+
+    .ph-pull-left > .btn,
+    .ph-pull-right > .btn {
+        margin: 1em 0.8em 0 0.8em;
+        width: 10em;
+    }
+}
+
+.ph-search-box {
+    display: none;
+    @include media-query(portable) {
+        display: block;
+    }
+}
+
+.ph-brands-module-box {
+    display: none;
+
+    @include media-query(lap) {
+        display: block;
+    }
+}
